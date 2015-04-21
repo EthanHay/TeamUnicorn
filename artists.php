@@ -47,7 +47,7 @@ include("dbconnect.php")
 <fieldset class="subtleSet">
 <h2>Current Artists:</h2>
 <input type="text" value="Name" class="description"/> <input type="text" value="Email" class="description"/> <input type="text" value="Facebook" class="description"/>
-<input type="text" value="Phone" class="description"/> <input type="text" value="Genre" class="description"/> <input type="text" value="About" class="description"/>
+<input type="text" value="Genre" class="description"/> <input type="text" value="Phone" class="description"/> <input type="text" value="About" class="description"/>
 <?php
 // Display what's in the database at the moment.
 $sql = "SELECT * FROM artists";
