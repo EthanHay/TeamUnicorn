@@ -5,7 +5,7 @@ include("dbconnect.php")
 <html>
 <head>
 <meta charset="UTF-8">
-<title>List of Current Artists</title>
+<title>Current Artists</title>
 </head>
 <body>    
 <h1>Current Artists</h1>
