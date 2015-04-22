@@ -34,8 +34,8 @@ echo "</pre>";
 // execute the appropriate query based on which submit button (insert, delete or update) was clicked
 if ($_REQUEST['submit'] == "Insert Entry")
 {
-	$sql = "INSERT INTO artists (name, email, facebook, genre, phone, about) VALUES 
-	('$_REQUEST[name]', '$_REQUEST[email]', '$_REQUEST[facebook]', '$_REQUEST[genre]', '$_REQUEST[phone]', '$_REQUEST[about]')";
+	$sql = "INSERT INTO artists (name, image, email, facebook, genre, phone, about) VALUES 
+	('$_REQUEST[name]', '$_REQUEST[image]', '$_REQUEST[email]', '$_REQUEST[facebook]', '$_REQUEST[genre]', '$_REQUEST[phone]', '$_REQUEST[about]')";
 	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
 	if ($dbh->exec($sql))
 		echo "Inserted $_REQUEST[name]";
@@ -53,7 +53,7 @@ else if ($_REQUEST['submit'] == "Delete Entry")
 }
 else if ($_REQUEST['submit'] == "Update Entry")
 {
-	$sql = "UPDATE artists SET name = '$_REQUEST[name]', email = '$_REQUEST[email]', facebook = '$_REQUEST[facebook]',
+	$sql = "UPDATE artists SET name = '$_REQUEST[name]', image = '$_REQUEST[image]', email = '$_REQUEST[email]', facebook = '$_REQUEST[facebook]',
 	 genre = '$_REQUEST[genre]', '$_REQUEST[phone]', about = '$_REQUEST[about]' WHERE id = '$_REQUEST[id]'";
 	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
 	if ($dbh->exec($sql))
@@ -89,10 +89,10 @@ if ($debugOn) {
 	echo "</pre>";
 	echo "<br />\n";
 }
-foreach ($dbh->query($sql) as $row)
-{
-	print $row[name] .' - '. $row[phone] . "<br />\n";
-}
+//foreach ($dbh->query($sql) as $row)
+//{
+//	print $row[name] .' - '. $row[phone] . "<br />\n";
+//}
 
 // close the database connection 
 $dbh = null;

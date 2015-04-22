@@ -19,6 +19,10 @@ include("dbconnect.php")
       <input type="text" name="name" id="name">
     </p>
     <p>
+      <label class="label" for="image">Image: </label>
+      <input type="file" name="image"  id="image">
+    </p>
+    <p>
       <label class="label"  for="email">E-mail Address: </label>
       <input type="text" name="email" id="email">
     </p>
@@ -46,26 +50,33 @@ include("dbconnect.php")
 
 <fieldset class="subtleSet">
 <h2>Current Artists:</h2>
-<input type="text" value="Name" class="description"/> <input type="text" value="Email" class="description"/> <input type="text" value="Facebook" class="description"/>
-<input type="text" value="Genre" class="description"/> <input type="text" value="Phone" class="description"/> <input type="text" value="About" class="description"/>
-<?php
+<blockquote>
+  <p>
+    <input type="text" value="Name" class="description"/> <input type="text" value="Image" class="description"/> 
+    <input type="text" value="Email" class="description"/> <input type="text" value="Facebook" class="description"/>
+    <input type="text" value="Genre" class="description"/> <input type="text" value="Phone" class="description"/> 
+    <input type="text" value="About" class="description"/>
+    <?php
 // Display what's in the database at the moment.
 $sql = "SELECT * FROM artists";
 foreach ($dbh->query($sql) as $row)
 {
 ?>
-
+    
+  </p>
+</blockquote>
 <form id="deleteForm" name="deleteForm" method="post" action="dbprocessartists.php">
-<?php
+  <?php
 	 
-	echo "<input type='text' name='name' value='$row[name]' /> <input type='text' name='email' value='$row[email]' />
-	<input type='text' name='facebook' value='$row[facebook]' /> <input type='text' name='phone' value='$row[phone]' /> 
-	<input type='text' name='genre' value='$row[genre]' /> <input type='text' name='about' value='$row[about]' />\n";
+	echo "<input type='text' name='name' value='$row[name]' /> <input type='text' name='image' value='$row[image]' />
+	<input type='text' name='email' value='$row[email]' /> <input type='text' name='facebook' value='$row[facebook]' /> 
+	<input type='text' name='phone' value='$row[phone]' /> <input type='text' name='genre' value='$row[genre]' /> 
+	<input type='text' name='about' value='$row[about]' />\n";
 	echo "<input type='hidden' name='id' value='$row[id]' />";
 ?>
-<input type="submit" name="submit" value="Update Entry" />
-<input type="submit" name="submit" value="Delete Entry" class="deleteButton">
-<input type="submit" name="submit" value="X" class="deleteButton">
+  <input type="submit" name="submit" value="Update Entry">
+  <input type="submit" name="submit" value="Delete Entry" class="deleteButton">
+  <input type="submit" name="submit" value="X" class="deleteButton">
 </form>
 <?php
 }
