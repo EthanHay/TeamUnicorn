@@ -26,9 +26,39 @@
     </ul>    
     </p>
 <h2>Target Audience</h2>
-<p>Our current audience is middle ages music lovers, however we wish to expand to all ages. We can design the website with a proffesional look in mind, whilst maintaining ease of navigation.</p>
+<p>Our current audience is middle aged music lovers, however we wish to expand to all ages. We can design the website with a proffesional look in mind, whilst maintaining ease of navigation.</p>
+   
+<h2> Content </h2>
+<ul>
+  <li>
+  Home page
+  </li>
+  <li>
+  Events
+  </li>
+  <li>
+  Artists
+  </li>
+  <li>
+  Forum/ Bulletin
+  </li>
+  <li>
+  Join us/Register
+  </li>
+  <li>
+  About
+  </li>
+  <li>
+  Contact
+  </li>
+
+
+</ul>
+   
+   
     <h2>GitHub Repository</h2>
     <p> Team Unicorn</p>
+    <a href="https://github.com/EThan296/TeamUnicorn"> </a>
     
 <h2>Site Flowchart (Structure Diagram)</h2>
 <p> ... </p>
