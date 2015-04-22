@@ -21,7 +21,7 @@ if ($_REQUEST['submit'] == "X")
 <html>
 <head>
 <meta charset="UTF-8">
-<title>PHP SQLite Database Example (Pets) - Results Page</title>
+<title>Artist Information Processing</title>
 </head>
 
 <body>
