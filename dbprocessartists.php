@@ -5,6 +5,7 @@
    The X option demonstrates this ("silent" delete).
 */
 include("dbconnect.php");
+
 $debugOn = true;
 
 if ($_REQUEST['submit'] == "X")
@@ -32,10 +33,11 @@ echo "<pre>";
 print_r($_REQUEST); // a useful debugging function to see everything in an array, best inside a <pre> element
 echo "</pre>";
 // execute the appropriate query based on which submit button (insert, delete or update) was clicked
+
 if ($_REQUEST['submit'] == "Insert Entry")
 {
-	$sql = "INSERT INTO artists (name, image, email, facebook, genre, phone, about) VALUES 
-	('$_REQUEST[name]', '$_REQUEST[image]', '$_REQUEST[email]', '$_REQUEST[facebook]', '$_REQUEST[genre]', '$_REQUEST[phone]', '$_REQUEST[about]')";
+	$sql = "INSERT INTO artists (name, email, facebook, genre, phone, about, image) VALUES 
+	('$_REQUEST[name]', '$_REQUEST[email]', '$_REQUEST[facebook]', '$_REQUEST[genre]', '$_REQUEST[phone]', '$_REQUEST[about]','$_REQUEST[image]')";
 	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
 	if ($dbh->exec($sql))
 		echo "Inserted $_REQUEST[name]";
@@ -53,8 +55,7 @@ else if ($_REQUEST['submit'] == "Delete Entry")
 }
 else if ($_REQUEST['submit'] == "Update Entry")
 {
-	$sql = "UPDATE artists SET name = '$_REQUEST[name]', image = '$_REQUEST[image]', email = '$_REQUEST[email]', facebook = '$_REQUEST[facebook]',
-	 genre = '$_REQUEST[genre]', '$_REQUEST[phone]', about = '$_REQUEST[about]' WHERE id = '$_REQUEST[id]'";
+	$sql = "UPDATE artists SET name = '$_REQUEST[name]', image = '$_REQUEST[image]', email = '$_REQUEST[email]', facebook = '$_REQUEST[facebook]', genre = '$_REQUEST[genre]', phone = '$_REQUEST[phone]', about = '$_REQUEST[about]' WHERE id = '$_REQUEST[id]'";
 	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
 	if ($dbh->exec($sql))
 		echo "Updated $_REQUEST[name]";

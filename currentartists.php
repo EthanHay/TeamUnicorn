@@ -11,15 +11,13 @@ include("dbconnect.php")
 <h1>Current Artists</h1>
 <?php
 // display current artists in the database.
-$sql = "SELECT name, image, email, facebook, genre FROM artists";
+$sql = "SELECT id, name, image, genre FROM artists";
 
 foreach ($dbh->query($sql) as $row)
 {
-echo "<p>$row[name]<br>";
-echo "<img src=$row[image] width=25% height=25%><br>";
-echo "E-mail: $row[email]<br>";
-echo "$row[facebook]<br>";
-echo "Genre: $row[genre]</p>";
+echo "<p><a href=\"artistdetails.php?id=$row[id]\">$row[name]<br>";
+echo "<img src=/~tcmc21/db$row[image] width=25% height=25%><br>";
+echo "Genre: $row[genre]</p></a>";
 }
 ?>
     </body>
