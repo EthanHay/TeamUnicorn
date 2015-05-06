@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Home</title>
+<link href="artiststyle.css" rel="stylesheet">
+</head>
+    
+<body>    
+<header class="site-header group">
+
+<!--- NAV BAR ---> 
+<div class="navigation-outer">    
+    <nav class="navigation-bar">   
+        <img src="images/TCMC_Images/Site/TCMC150100.jpg">
+        <ul class="site-navigation">
+           <li> 
+                <a href="#">Home</a>    
+            </li>  
+            <li> 
+                <a href="#">Events</a>    
+            </li>
+            <li> 
+                <a href="#">Artists</a>    
+            </li>
+            <li> 
+                <a href="#">Forum</a>    
+            </li>  
+            <li> 
+                <a href="#">Join Us</a>    
+            </li> 
+            <li> 
+                <a href="#">About</a>    
+            </li> 
+            <li> 
+                <a href="#">Contact</a>    
+            </li> 
+        </ul>
+    </nav>
+</div>
+    
+</header>
+
+
+<div class="site_outside">
+<div class="site group"> 
+    
+    <div class="slideshow">
+        <img src="images/TCMC_Images/Site/CIVIC%20C2%20LOGO.jpg" alt="Slideshow1">
+    
+    
+    </div>
+    
+    
+    <div class="thumbnails">
+        <div class="thumnail-one">
+            <img src="images/TCMC_Images/musos/Harbourside_small.jpg" alt="bandName">
+                <div class="img-footer">
+                    <p>Brief description</p>
+                </div>        
+        </div>
+        <div class="thumnail-two">
+            <img src="images/TCMC_Images/bulletin/Organ.png" alt="Organ">
+                <div class="img-footer">
+                    <p>Brief description</p>
+                </div>        
+        </div>
+        <div class="thumnail-three">
+            <img src="images/TCMC_Images/bulletin/TCBlogo160160.jpg" alt="bandName">
+                <div class="img-footer">
+                    <p>Brief description</p>
+                </div>        
+        </div>
+    
+    </div>
+    
+    
+</div>   
+</div>    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!--- FOOTER --->     
+<div class="footer-outer group">
+    <footer class="site-footer">
+        <div class="footer-nav">
+            <ul class="site-navigation">
+                <li> 
+                    <a href="#">Home</a>    
+                </li>  
+                <li> 
+                    <a href="#">Events</a>    
+                </li>
+                <li> 
+                    <a href="#">Artists</a>    
+                </li>
+                <li> 
+                    <a href="#">Forum</a>    
+                </li>  
+                <li> 
+                    <a href="#">Join Us</a>    
+                </li> 
+                <li> 
+                    <a href="#">About</a>    
+                </li> 
+                <li> 
+                    <a href="#">Contact</a>    
+                </li> 
+            </ul>        
+        </div>
+        
+        <div class="footer-contact">
+            <p>Contact Info:</p>
+            <p> Phone:07 4724 2086 Mobile: 04 0225 5182</p> <p>Address: Townsville Civic Theatre, 41 Boundary Street, Townsville, Qld 4810</p> <a href="mailto:admin@townsvillemusic.org.au"                   target="_top">admin@townsvillemusic.org.au</a>
+        </div>
+        
+        <div class="Logo">
+            <img src="images/TCMC_Images/Site/TCC83100.png" alt="Townsville City Logo">
+            <img src="images/TCMC_Images/Site/Qldlogo150169.jpg" alt="Queensland Logo">
+        
+        </div>
+
+</footer>     
+</body>
+</html>
