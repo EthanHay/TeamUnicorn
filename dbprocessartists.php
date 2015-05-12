@@ -12,7 +12,7 @@ if ($_REQUEST['submit'] == "X")
 {
 	$sql = "DELETE FROM artists WHERE id = '$_REQUEST[id]'";
 	if ($dbh->exec($sql))
-		header("Location: artists.php"); // NOTE: This must be done before ANY html is output, which is why it's right at the top!
+		header("Location: addartist.php"); // NOTE: This must be done before ANY html is output, which is why it's right at the top!
 /*	else
 		// set message to be printed on appropriate (results) page
 */
@@ -36,8 +36,9 @@ echo "</pre>";
 
 if ($_REQUEST['submit'] == "Insert Entry")
 {
+	include("upload_file.php");
 	$sql = "INSERT INTO artists (name, email, facebook, genre, phone, about, image) VALUES 
-	('$_REQUEST[name]', '$_REQUEST[email]', '$_REQUEST[facebook]', '$_REQUEST[genre]', '$_REQUEST[phone]', '$_REQUEST[about]','$_REQUEST[image]')";
+	('$_REQUEST[name]', '$_REQUEST[email]', '$_REQUEST[facebook]', '$_REQUEST[genre]', '$_REQUEST[phone]', '$_REQUEST[about]','$newFullName')";
 	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
 	if ($dbh->exec($sql))
 		echo "Inserted $_REQUEST[name]";
@@ -98,6 +99,6 @@ if ($debugOn) {
 // close the database connection 
 $dbh = null;
 ?>
-<p><a href="artists.php">Return to database test page</a></p>
+<p><a href="addartist.php">Return to database test page</a></p>
 </body>
 </html>
