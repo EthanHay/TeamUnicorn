@@ -1,0 +1,22 @@
+@charset "UTF-8";
+.subtleSet {
+	border-radius:25px;
+	width: 95%;
+}
+label {
+	display: block;
+	float:left;
+	width: 10em;
+	height: 2em;
+}
+
+input.description {
+	
+}
+
+.deleteButton {
+	color: red;
+}
+.description {
+	font-weight:bold;
+}
