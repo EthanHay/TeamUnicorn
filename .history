@@ -1,0 +1,16 @@
+#+1426651337
+ls -l ..
+#+1426651361
+cd public_html/
+#+1426651389
+ls -al
+#+1426651423
+ls
+#+1426651430
+vim .htaccess
+#+1426651462
+ls -al me/
+#+1426651502
+chmod a+r -R me
+#+1426651561
+ls -al me/images
