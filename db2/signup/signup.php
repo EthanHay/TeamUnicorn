@@ -19,8 +19,8 @@
     <input type="text" name="surname" id="surname" required>
     </p>
     <p>
-    <label class="label" for="street">Address</label>
-    <input type="text" name="street" id="street" required>
+    <label class="label" for="address">Address</label>
+    <input type="text" name="address" id="address" required>
     </p>
     <p>
     <label class="label" for="postcode">Post code</label>
@@ -56,6 +56,10 @@
     <label class="label" for="password">Password</label>
     <input type="password" name="password" id="password" pattern=".{6,}" required title="Please make sure your password has more than 6 characters">
     </p>
+    <p>
+    <label class="label" for="repassword">Retype password</label>
+    <input type="password" name="repassword" id="repassword" >
+    </p>    
     <p>
     <input type="submit" name="submit" id="submit" value="Become a member">
     </p>

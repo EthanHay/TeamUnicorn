@@ -7,6 +7,16 @@
 include("dbconnect.php");
 
 $debugOn = true;
+
+if ($_REQUEST['submit'] == "X")
+{
+	$sql = "DELETE FROM artists WHERE id = '$_REQUEST[id]'";
+	if ($dbh->exec($sql))
+		header("Location: addartist.php"); // NOTE: This must be done before ANY html is output, which is why it's right at the top!
+/*	else
+		// set message to be printed on appropriate (results) page
+*/
+}
 ?>
 <!doctype html>
 <html>
@@ -24,18 +34,35 @@ print_r($_REQUEST); // a useful debugging function to see everything in an array
 echo "</pre>";
 // execute the appropriate query based on which submit button (insert, delete or update) was clicked
 
-if ($_REQUEST['submit'] == "Become a member")
+if ($_REQUEST['submit'] == "Insert Entry")
 {
-	$sql = "INSERT INTO members (firstname, surname, address, postcode, suburb, state, phoneday, phoneeve, email, username, password, status) VALUES 
-	('$_REQUEST[firstname]', '$_REQUEST[surname]', '$_REQUEST[address]', '$_REQUEST[postcode]', '$_REQUEST[suburb]', 
-	'$_REQUEST[state]','$_REQUEST[phoneday]','$_REQUEST[phoneeve]','$_REQUEST[email]','$_REQUEST[username]','$_REQUEST[password]', 'free')";
+	include("upload_file.php");
+	$sql = "INSERT INTO artists (name, email, facebook, genre, phone, about, image, thumb) VALUES 
+	('$_REQUEST[name]', '$_REQUEST[email]', '$_REQUEST[facebook]', '$_REQUEST[genre]', '$_REQUEST[phone]', '$_REQUEST[about]','$newFullName','$thumbFullName')";
 	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
 	if ($dbh->exec($sql))
 		echo "Inserted $_REQUEST[name]";
 	else
 		echo "Not inserted"; // in case it didn't work - e.g. if database is not writeable
 }
-
+else if ($_REQUEST['submit'] == "Delete Entry")
+{
+	$sql = "DELETE FROM artists WHERE id = '$_REQUEST[id]'";
+	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
+	if ($dbh->exec($sql))
+		echo "Deleted $_REQUEST[name]";
+	else
+		echo "Not deleted";
+}
+else if ($_REQUEST['submit'] == "Update Entry")
+{
+	$sql = "UPDATE artists SET name = '$_REQUEST[name]', image = '$_REQUEST[image]', thumb= '$_REQUEST[thumb]', email = '$_REQUEST[email]', facebook = '$_REQUEST[facebook]', genre = '$_REQUEST[genre]', phone = '$_REQUEST[phone]', about = '$_REQUEST[about]' WHERE id = '$_REQUEST[id]'";
+	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
+	if ($dbh->exec($sql))
+		echo "Updated $_REQUEST[name]";
+	else
+		echo "Not updated";
+}
 else {
 	echo "This page did not come from a valid form submission.<br />\n";
 }
@@ -43,8 +70,8 @@ echo "</strong></p>\n";
 
 // Basic select and display all contents from table 
 
-echo "<h2>Members in Database Now</h2>\n";
-$sql = "SELECT * FROM members";
+echo "<h2>Artists in Database Now</h2>\n";
+$sql = "SELECT * FROM artists";
 $result = $dbh->query($sql);
 $resultCopy = $result;
 
@@ -72,6 +99,6 @@ if ($debugOn) {
 // close the database connection 
 $dbh = null;
 ?>
-<p><a href="signup.php">Return to database test page</a></p>
+<p><a href="addartist.php">Return to database test page</a></p>
 </body>
 </html>

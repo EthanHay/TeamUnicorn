@@ -7,12 +7,22 @@
 include("dbconnect.php");
 
 $debugOn = true;
+
+if ($_REQUEST['submit'] == "X")
+{
+	$sql = "DELETE FROM members WHERE id = '$_REQUEST[id]'";
+	if ($dbh->exec($sql))
+		header("Location: addmember.php"); // NOTE: This must be done before ANY html is output, which is why it's right at the top!
+/*	else
+		// set message to be printed on appropriate (results) page
+*/
+}
 ?>
 <!doctype html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Artist Information Processing</title>
+<title>Member Information Processing</title>
 </head>
 
 <body>
@@ -24,18 +34,39 @@ print_r($_REQUEST); // a useful debugging function to see everything in an array
 echo "</pre>";
 // execute the appropriate query based on which submit button (insert, delete or update) was clicked
 
-if ($_REQUEST['submit'] == "Become a member")
+if ($_REQUEST['submit'] == "Submit new member")
 {
 	$sql = "INSERT INTO members (firstname, surname, address, postcode, suburb, state, phoneday, phoneeve, email, username, password, status) VALUES 
 	('$_REQUEST[firstname]', '$_REQUEST[surname]', '$_REQUEST[address]', '$_REQUEST[postcode]', '$_REQUEST[suburb]', 
-	'$_REQUEST[state]','$_REQUEST[phoneday]','$_REQUEST[phoneeve]','$_REQUEST[email]','$_REQUEST[username]','$_REQUEST[password]', 'free')";
+	'$_REQUEST[state]','$_REQUEST[phoneday]','$_REQUEST[phoneeve]','$_REQUEST[email]','$_REQUEST[username]','$_REQUEST[password]', '$_REQUEST[status]')";
 	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
 	if ($dbh->exec($sql))
-		echo "Inserted $_REQUEST[name]";
+		header("Location: addmember.php?result=submitted");
 	else
-		echo "Not inserted"; // in case it didn't work - e.g. if database is not writeable
+		header("Location: addmember.php?result=notsubmitted"); // in case it didn't work - e.g. if database is not writeable
 }
-
+else if ($_REQUEST['submit'] == "Delete Entry")
+{
+	$sql = "DELETE FROM members WHERE id = '$_REQUEST[id]'";
+	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
+	if ($dbh->exec($sql))
+		header("Location: addmember.php?result=deleted");
+	else
+		header("Location: addmember.php?result=notdeleted");
+}
+else if ($_REQUEST['submit'] == "Update Entry")
+{
+	$sql = "UPDATE members SET firstname = '$_REQUEST[firstname]', surname = '$_REQUEST[surname]',
+	 address= '$_REQUEST[address]', postcode = '$_REQUEST[postcode]', suburb = '$_REQUEST[suburb]', 
+	 state = '$_REQUEST[state]', phoneday = '$_REQUEST[phoneday]', phoneeve = '$_REQUEST[phoneeve]', 
+	 email = '$_REQUEST[email]', username = '$_REQUEST[username]', password = '$_REQUEST[password]',
+	 status = '$_REQUEST[status]' WHERE id = '$_REQUEST[id]'";
+	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
+	if ($dbh->exec($sql))
+		header("Location: addmember.php?result=updated");
+	else
+		header("Location: addmember.php?result=notupdated");
+}
 else {
 	echo "This page did not come from a valid form submission.<br />\n";
 }
@@ -72,6 +103,6 @@ if ($debugOn) {
 // close the database connection 
 $dbh = null;
 ?>
-<p><a href="signup.php">Return to database test page</a></p>
+<p><a href="addmember.php">Return to database test page</a></p>
 </body>
 </html>
