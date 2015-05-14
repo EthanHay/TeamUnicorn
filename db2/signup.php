@@ -56,21 +56,10 @@
     <label class="label" for="password">Password</label>
     <input type="password" name="password" id="password" pattern=".{6,}" required title="Please make sure your password has more than 6 characters">
     </p>
-    <?php $password = $_POST['password'];?>
     <p>
     <label class="label" for="repassword">Retype password</label>
     <input type="password" name="repassword" id="repassword" >
-    </p>
-    <?php 
-	$repassword = $_POST['repassword']; 
-	if($password != $repassword) {
-		echo ('your passwords do not match');
-	}
-	else {
-		echo ('passwords match');
-	}
-	?>
-    
+    </p>    
     <p>
     <input type="submit" name="submit" id="submit" value="Become a member">
     </p>
