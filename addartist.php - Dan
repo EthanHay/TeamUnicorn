@@ -1,0 +1,157 @@
+<?php
+include("dbconnect.php")
+?>
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Artists</title>
+<link href="artiststyle.css" rel="stylesheet" type="text/css">
+</head>
+
+<header class="site-header group">
+
+<!--- NAV BAR ---> 
+<div class="navigation-outer">    
+    <nav class="navigation-bar">   
+        <img src="images/TCMC_Images/Site/TCMC150100.jpg">
+        <ul class="site-navigation">
+           <li> 
+                <a href="Home.html">Home</a>    
+            </li>  
+            <li> 
+                <a href="Events.html">Events</a>    
+            </li>
+            <li> 
+                <a href="Artists.html">Artists</a>    
+            </li>
+            <li> 
+                <a href="Forum.html">Forum</a>    
+            </li>  
+            <li> 
+                <a href="Join.html">Join Us</a>    
+            </li> 
+            <li> 
+                <a href="About.html">About</a>    
+            </li> 
+            <li> 
+                <a href="Contact.html">Contact</a>    
+            </li> 
+        </ul>
+    </nav>
+</div>
+    
+    
+</header>    
+    
+
+    
+<body>
+    
+<div class="site_outside">
+<div class="site group"> 
+   
+    
+    
+    
+    <h2>Artist Database</h2>
+
+    
+    <form id="insert" name="insert" method="post" action="dbprocessartists.php" enctype="multipart/form-data">
+        <fieldset class="subtleSet">
+            <h3>Insert New Artist:</h3>
+            <p>
+              <label class="label" for="name">Artist Name: </label> <br>
+              <input type="text" name="name" id="name">
+            </p>
+            <p>
+              <label class="label"  for="email">E-mail Address: </label> <br>
+              <input type="text" name="email" id="email">
+            </p>
+            <p>
+              <label class="label"  for="facebook">Website/Facebook Address: </label> <br>
+              <input type="text" name="facebook" id="facebook">
+            </p>
+             <p>
+              <label class="label"  for="phone">Phone Number: </label> <br>
+              <input type="text" name="phone" id="phone">
+            </p>
+            <p>
+              <label class="label"  for="genre">Main Genre: </label> <br>
+              <input type="text" name="genre" id="genre">
+            </p>
+            <p>
+              <label class="label"  for="about">About the Artist: </label> <br>
+              <input type="text" name="about" id="about">
+            </p>
+            <p>
+                <label class="label" for="image">Image: </label> <br>
+              <input type="file" name="imagefile"  id="imagefile">
+            </p>
+            <p>
+            <input type="checkbox" name="thumbnailChoice" id="thumbnailChoice" checked="checked">
+            <label for="thumbnailChoice">Create Thumbnail?</label> <br>
+            </p>
+            <p>
+              <input type="submit" name="submit" id="submit" value="Insert Entry">
+            </p>
+        </fieldset>
+    </form>
+
+    <fieldset class="subtleSet">
+        <h3>Current Artists:</h3>
+        
+        
+        
+        <blockquote>
+          <p>
+            <input type="text" value="Name" class="description"/> <input type="text" value="Image"      class="description"/> 
+            <input type="text" value="Email" class="description"/> <input type="text" value="Facebook" class="description"/>
+            <input type="text" value="Genre" class="description"/> <input type="text" value="Phone" class="description"/> 
+            <input type="text" value="About" class="description"/>
+    <?php // Display what's in the database at the moment.
+    $sql = "SELECT * FROM artists";
+    foreach ($dbh->query($sql) as $row){
+    ?>
+
+          </p>
+        </blockquote>
+        
+         
+        
+        <form id="deleteForm" name="deleteForm" method="post" action="dbprocessartists.php">
+  
+          
+        
+            
+            <?php
+	 
+	echo "<input type='text' name='name' value='$row[name]' /> <input type='text' name='image' value='$row[image]' />
+	<input type='text' name='email' value='$row[email]' /> <input type='text' name='facebook' value='$row[facebook]' /> 
+	<input type='text' name='phone' value='$row[phone]' /> <input type='text' name='genre' value='$row[genre]' /> 
+	<input type='text' name='about' value='$row[about]' />\n";
+	echo "<input type='hidden' name='id' value='$row[id]' />";
+?>
+            
+            
+  <input type="submit" name="submit" value="Update Entry">
+  <input type="submit" name="submit" value="Delete Entry" class="deleteButton">
+  <input type="submit" name="submit" value="X" class="deleteButton">
+</form>
+<?php
+}
+echo "</fieldset>\n";
+// close the database connection
+$dbh = null;
+?>
+    </fieldset>
+    
+    
+</div>
+</div>
+
+
+  
+    
+</body>
+</html>
