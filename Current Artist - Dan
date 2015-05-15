@@ -1,0 +1,159 @@
+<?php
+include("dbconnect.php")
+?>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Current Artists</title>
+<link href="artiststyle.css" rel="stylesheet">
+</head>
+    
+    
+<body>
+    <header class="site-header group">
+
+<!--- NAV BAR ---> 
+<div class="navigation-outer">    
+    <nav class="navigation-bar">   
+        <img src="images/TCMC_Images/Site/TCMC150100.jpg">
+        <ul class="site-navigation">
+           <li> 
+                <a href="Home.html">Home</a>    
+            </li>  
+            <li> 
+                <a href="Events.html">Events</a>    
+            </li>
+            <li> 
+                <a href="Artists.html">Artists</a>    
+            </li>
+            <li> 
+                <a href="Forum.html">Forum</a>    
+            </li>  
+            <li> 
+                <a href="Join.html">Join Us</a>    
+            </li> 
+            <li> 
+                <a href="About.html">About</a>    
+            </li> 
+            <li> 
+                <a href="Contact.html">Contact</a>    
+            </li> 
+        </ul>
+    </nav>
+</div>
+    
+</header>
+  
+
+<?php 
+// display current artists in the database.
+//$sql = "SELECT id, name, image, genre FROM artists";
+//foreach ($dbh->query($sql) as $row)
+//{
+//echo "<p><a href=\"artistdetails.php?id=$row[id]\">$row[name]<br>";
+//echo "<img src=/~tcmc21/db$row[image] width=25% height=25%><br>";
+//echo "Genre: $row[genre]</p></a>";
+//}
+?>
+    
+<div class="site_outside">
+<div class="site group"> 
+    
+    <div class="Artist-Segments">
+        <div class="Artist-Segment1">
+            <a href="Harbourside.html">        
+                <img src="images/TCMC_Images/musos/Harbourside_small.jpg">
+            </a>
+            <a href="Harbourside.html">
+                <h2>Harbourside</h2>
+            </a>
+            <p>Description about the group</p>
+        </div>
+        
+        
+        <div class="Artist-Segment2">
+            <a href="Rosewood.html">
+                <img src="images/TCMC_Images/musos/Rosewood_small.jpg">
+            </a>    
+            <a href="Rosewood.html">    
+                <h2>Rosewood</h2>
+            </a>
+            <p>Description about the group</p>
+        </div>
+        
+        <div class="Artist-Segment3">
+            <a href="Camerata.html">
+                <img src="images/TCMC_Images/musos/Camerata.jpg">
+            </a>
+            <a href="Camerata.html">
+                <h2>Camerata</h2>
+            </a>
+            <p>Description about the group</p>
+        </div>
+        
+        <div class="Artist-Segment4">
+            <a href="Poms.html">
+                <img src="images/TCMC_Images/musos/Poms_small.jpg">
+            </a>
+            <a href="Poms.html">
+                <h2>Poms</h2>
+            </a>
+            <p>Description about the group</p>
+        </div>
+    
+    </div>
+        
+        
+</div>   
+</div>    
+
+    
+    
+    
+    
+  <!--- FOOTER --->     
+<div class="footer-outer group">
+    <footer class="site-footer">
+        <div class="footer-nav">
+            <ul class="site-navigation">
+                <li> 
+                    <a href="#">Home</a>    
+                </li>  
+                <li> 
+                    <a href="#">Events</a>    
+                </li>
+                <li> 
+                    <a href="#">Artists</a>    
+                </li>
+                <li> 
+                    <a href="#">Forum</a>    
+                </li>  
+                <li> 
+                    <a href="#">Join Us</a>    
+                </li> 
+                <li> 
+                    <a href="#">About</a>    
+                </li> 
+                <li> 
+                    <a href="#">Contact</a>    
+                </li> 
+            </ul>        
+        </div>
+        
+        <div class="footer-contact">
+            <p>Contact Info:</p>
+            <p> Phone:07 4724 2086 Mobile: 04 0225 5182</p> <p>Address: Townsville Civic Theatre, 41 Boundary Street, Townsville, Qld 4810</p> <a href="mailto:admin@townsvillemusic.org.au"                   target="_top">admin@townsvillemusic.org.au</a>
+        </div>
+        
+        <div class="Logo">
+            <img src="images/TCMC_Images/Site/TCC83100.png" alt="Townsville City Logo">
+            <img src="images/TCMC_Images/Site/Qldlogo150169.jpg" alt="Queensland Logo">
+        
+        </div>
+
+</footer>     
+</div>    
+    
+</body>
+</html>
