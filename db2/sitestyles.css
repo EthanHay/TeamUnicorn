@@ -10,7 +10,7 @@
 
 .site {
  margin: 60px;  
- 
+ padding: 1em;
 }
 .logo img{
 	width: 100px;
@@ -227,12 +227,14 @@ Width: 100%
 	Margin-right: 70px;
 }	
 .footer-nav {
-	width: 20%;
+	width: 15%;
 	Float:left;
+	padding: 0;
 	
 }
 .footer-nav ul {
 	list-style-type: none;
+	padding: 0;
 }
 .footer-nav a {
 	Text-decoration:none;
@@ -246,12 +248,20 @@ Width: 100%
 }
 .footer-contact {
  	float: left;
-    margin-top: 3px;
-	Width: 30%;
+    margin-top: 1em;
+	Width: 50%;
 	font-family:"Copperplate Gothic light";
 }
 
+footer div.logo {
+	float:left;
+	width: 35%;
+	padding:0;
+}
 
+footer div.logo img {
+	margin: 1em 0.5em 1em 0.5em;
+}
 
 /* ------ GENERAL ------ */
 
