@@ -5,14 +5,13 @@
    The X option demonstrates this ("silent" delete).
 */
 include("dbconnect.php");
-
 $debugOn = true;
 
 if ($_REQUEST['submit'] == "X")
 {
 	$sql = "DELETE FROM artists WHERE id = '$_REQUEST[id]'";
 	if ($dbh->exec($sql))
-		header("Location: addartist.php"); // NOTE: This must be done before ANY html is output, which is why it's right at the top!
+		header("Location: artists.php"); // NOTE: This must be done before ANY html is output, which is why it's right at the top!
 /*	else
 		// set message to be printed on appropriate (results) page
 */
@@ -22,7 +21,7 @@ if ($_REQUEST['submit'] == "X")
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Artist Information Processing</title>
+<title>PHP SQLite Database Example (Pets) - Results Page</title>
 </head>
 
 <body>
@@ -33,12 +32,10 @@ echo "<pre>";
 print_r($_REQUEST); // a useful debugging function to see everything in an array, best inside a <pre> element
 echo "</pre>";
 // execute the appropriate query based on which submit button (insert, delete or update) was clicked
-
 if ($_REQUEST['submit'] == "Insert Entry")
 {
-	include("upload_file.php");
-	$sql = "INSERT INTO artists (name, email, facebook, genre, phone, about, image, thumb) VALUES 
-	('$_REQUEST[name]', '$_REQUEST[email]', '$_REQUEST[facebook]', '$_REQUEST[genre]', '$_REQUEST[phone]', '$_REQUEST[about]','$newFullName','$thumbFullName')";
+	$sql = "INSERT INTO artists (name, email, facebook, genre, phone, about) VALUES 
+	('$_REQUEST[name]', '$_REQUEST[email]', '$_REQUEST[facebook]', '$_REQUEST[genre]', '$_REQUEST[phone]', '$_REQUEST[about]')";
 	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
 	if ($dbh->exec($sql))
 		echo "Inserted $_REQUEST[name]";
@@ -56,9 +53,8 @@ else if ($_REQUEST['submit'] == "Delete Entry")
 }
 else if ($_REQUEST['submit'] == "Update Entry")
 {
-	$sql = "UPDATE artists SET name = '$_REQUEST[name]', image = '$_REQUEST[image]', 
-	thumb= '$_REQUEST[thumb]', email = '$_REQUEST[email]', facebook = '$_REQUEST[facebook]',
-	 genre = '$_REQUEST[genre]', phone = '$_REQUEST[phone]', about = '$_REQUEST[about]' ";
+	$sql = "UPDATE artists SET name = '$_REQUEST[name]', email = '$_REQUEST[email]', facebook = '$_REQUEST[facebook]',
+	 genre = '$_REQUEST[genre]', '$_REQUEST[phone]', about = '$_REQUEST[about]' WHERE id = '$_REQUEST[id]'";
 	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
 	if ($dbh->exec($sql))
 		echo "Updated $_REQUEST[name]";
@@ -93,14 +89,14 @@ if ($debugOn) {
 	echo "</pre>";
 	echo "<br />\n";
 }
-//foreach ($dbh->query($sql) as $row)
-//{
-//	print $row[name] .' - '. $row[phone] . "<br />\n";
-//}
+foreach ($dbh->query($sql) as $row)
+{
+	print $row[name] .' - '. $row[phone] . "<br />\n";
+}
 
 // close the database connection 
 $dbh = null;
 ?>
-<p><a href="addartist.php">Return to database test page</a></p>
+<p><a href="artists.php">Return to database test page</a></p>
 </body>
 </html>

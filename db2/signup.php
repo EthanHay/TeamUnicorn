@@ -2,14 +2,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Untitled Document</title>
-<link href="signupstyle.css" rel="stylesheet" type="text/css">
+<title>TCMC - Sign up</title>
+<link href="sitestyles.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
+<?php
+include("header.html");
+?>
+<div class="site_outside">
+<div class="site">
 <h1>Sign-up form</h1>
-
 <form id="register" name="register" method="post" action="signupprocess.php">
+<fieldset class="subtleSet">
 	<p>
 	<label class="label" for="firstname">First Name</label>
     <input type="text" name="firstname" id="firstname" required>
@@ -63,8 +68,12 @@
     <p>
     <input type="submit" name="submit" id="submit" value="Become a member">
     </p>
-    </form>
-    
-    
+    </fieldset>
+</form>
+</div>
+</div>    
+<?php
+include("footer.html");
+?>    
 </body>
 </html>

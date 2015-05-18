@@ -10,9 +10,9 @@ $debugOn = true;
 
 if ($_REQUEST['submit'] == "X")
 {
-	$sql = "DELETE FROM artists WHERE id = '$_REQUEST[id]'";
+	$sql = "DELETE FROM events WHERE id = '$_REQUEST[id]'";
 	if ($dbh->exec($sql))
-		header("Location: addartist.php"); // NOTE: This must be done before ANY html is output, which is why it's right at the top!
+		header("Location: addevents.php"); // NOTE: This must be done before ANY html is output, which is why it's right at the top!
 /*	else
 		// set message to be printed on appropriate (results) page
 */
@@ -22,7 +22,7 @@ if ($_REQUEST['submit'] == "X")
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Artist Information Processing</title>
+<title>Events Information Processing</title>
 </head>
 
 <body>
@@ -37,8 +37,8 @@ echo "</pre>";
 if ($_REQUEST['submit'] == "Insert Entry")
 {
 	include("upload_file.php");
-	$sql = "INSERT INTO artists (name, email, facebook, genre, phone, about, image, thumb) VALUES 
-	('$_REQUEST[name]', '$_REQUEST[email]', '$_REQUEST[facebook]', '$_REQUEST[genre]', '$_REQUEST[phone]', '$_REQUEST[about]','$newFullName','$thumbFullName')";
+	$sql = "INSERT INTO events (name, image, description, location, date) VALUES 
+	('$_REQUEST[name]', '$newFullName', '$_REQUEST[description]', '$_REQUEST[location]', '$_REQUEST[date]')";
 	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
 	if ($dbh->exec($sql))
 		echo "Inserted $_REQUEST[name]";
@@ -47,7 +47,7 @@ if ($_REQUEST['submit'] == "Insert Entry")
 }
 else if ($_REQUEST['submit'] == "Delete Entry")
 {
-	$sql = "DELETE FROM artists WHERE id = '$_REQUEST[id]'";
+	$sql = "DELETE FROM events WHERE id = '$_REQUEST[id]'";
 	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
 	if ($dbh->exec($sql))
 		echo "Deleted $_REQUEST[name]";
@@ -56,9 +56,8 @@ else if ($_REQUEST['submit'] == "Delete Entry")
 }
 else if ($_REQUEST['submit'] == "Update Entry")
 {
-	$sql = "UPDATE artists SET name = '$_REQUEST[name]', image = '$_REQUEST[image]', 
-	thumb= '$_REQUEST[thumb]', email = '$_REQUEST[email]', facebook = '$_REQUEST[facebook]',
-	 genre = '$_REQUEST[genre]', phone = '$_REQUEST[phone]', about = '$_REQUEST[about]' ";
+	$sql = "UPDATE events SET name = '$_REQUEST[name]', image = '$_REQUEST[image]', 
+	descripton= '$_REQUEST[description]', location = '$_REQUEST[location]', date = '$_REQUEST[date]' ";
 	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
 	if ($dbh->exec($sql))
 		echo "Updated $_REQUEST[name]";
@@ -72,8 +71,8 @@ echo "</strong></p>\n";
 
 // Basic select and display all contents from table 
 
-echo "<h2>Artists in Database Now</h2>\n";
-$sql = "SELECT * FROM artists";
+echo "<h2>Events in Database Now</h2>\n";
+$sql = "SELECT * FROM events";
 $result = $dbh->query($sql);
 $resultCopy = $result;
 
@@ -101,6 +100,6 @@ if ($debugOn) {
 // close the database connection 
 $dbh = null;
 ?>
-<p><a href="addartist.php">Return to database test page</a></p>
+<p><a href="addevent.php">Return to database test page</a></p>
 </body>
 </html>

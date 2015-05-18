@@ -37,8 +37,8 @@ echo "</pre>";
 if ($_REQUEST['submit'] == "Insert Entry")
 {
 	include("upload_file.php");
-	$sql = "INSERT INTO artists (name, email, facebook, genre, phone, about, image, thumb) VALUES 
-	('$_REQUEST[name]', '$_REQUEST[email]', '$_REQUEST[facebook]', '$_REQUEST[genre]', '$_REQUEST[phone]', '$_REQUEST[about]','$newFullName','$thumbFullName')";
+	$sql = "INSERT INTO artists (name, email, facebook, genre, phone, about, image) VALUES 
+	('$_REQUEST[name]', '$_REQUEST[email]', '$_REQUEST[facebook]', '$_REQUEST[genre]', '$_REQUEST[phone]', '$_REQUEST[about]','$newFullName')";
 	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
 	if ($dbh->exec($sql))
 		echo "Inserted $_REQUEST[name]";
@@ -56,9 +56,7 @@ else if ($_REQUEST['submit'] == "Delete Entry")
 }
 else if ($_REQUEST['submit'] == "Update Entry")
 {
-	$sql = "UPDATE artists SET name = '$_REQUEST[name]', image = '$_REQUEST[image]', 
-	thumb= '$_REQUEST[thumb]', email = '$_REQUEST[email]', facebook = '$_REQUEST[facebook]',
-	 genre = '$_REQUEST[genre]', phone = '$_REQUEST[phone]', about = '$_REQUEST[about]' ";
+	$sql = "UPDATE artists SET name = '$_REQUEST[name]', image = '$_REQUEST[image]', email = '$_REQUEST[email]', facebook = '$_REQUEST[facebook]', genre = '$_REQUEST[genre]', phone = '$_REQUEST[phone]', about = '$_REQUEST[about]' WHERE id = '$_REQUEST[id]'";
 	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
 	if ($dbh->exec($sql))
 		echo "Updated $_REQUEST[name]";

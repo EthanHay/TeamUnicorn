@@ -4,10 +4,16 @@
 	width: 95%;
 }
 label {
-	display: inline-block;
+	display: block;
 	float:left;
 	width: 10em;
+	height: 2em;
 }
+
+input.description {
+	
+}
+
 .deleteButton {
 	color: red;
 }

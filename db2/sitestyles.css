@@ -1,0 +1,404 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* ------ HEADER ------ */
+
+.site-header {
+	 height: 7.5em;
+	 /*box-shadow: 10px 10px 5px #44146F inset;*/
+}
+
+.site {
+ margin: 60px;  
+ 
+}
+.logo img{
+	width: 100px;
+}
+.tagline
+{
+    color: #FFF;
+    height: 2.5em;
+}
+/* ------ ADD-FORMS ------ */
+
+fieldset.subtleSet {
+	border: none;
+}
+
+.subtleSet h2 {
+	color: #FFF;
+}
+label.label {
+	display:inline-block;
+	float: left;
+	width: 10em;
+	color: #FFF;
+	margin-left: 1em;
+}
+
+/* ------ NAVIGATION BAR ------ */
+
+#navigation-bar {
+	align-content:	center;	
+}
+#site-navigation {
+	Width:auto;
+	Margin:auto;
+	Margin-top: 15px;
+	
+	
+}
+#site-navigation li
+{    
+    height: 1em;
+ 	display: inline-block;
+	font-size: 22px;
+	Font-family:"Copperplate Gothic Bold";
+	margin-bottom: 25px;
+}
+
+#site-navigation a
+{    
+    display: block;
+    text-decoration: none;
+    color: #000;
+    padding: .2em .8em;
+    margin: .8em .1;
+	
+}
+    
+#site-navigation a:hover
+{
+ 	opacity: .7;
+	background-color: #CCCCCC
+}
+
+#navigation-outer img {
+    float: left;
+}
+
+#navigation-outer
+{
+    min-width: 760px;
+	width: 60%;
+	Height: 6.5em;
+    background-color: #FFF;
+	margin-right:auto;
+	margin-left:auto;
+	
+}
+
+
+/* ------ Main ------ */
+
+
+
+
+/*.thumbnails {
+
+Width: 100%
+
+    
+}*/
+#slideshow img{
+	width:100%;
+	height: 300px;
+	margin-top:5px;
+}
+#thumbnails {
+	Padding-top: 15px;
+}
+#thumbnails h3 {
+	padding-left:20px
+}
+#thumbnails p {
+	padding-left:20px
+}
+#thumbnail-one {
+	float: left;
+	width: 30%;
+	Margin-right: 60px;
+	background-color: #3D1264
+} 
+#thumbnail-one .image {
+	Width: 100%;
+	Height:auto;
+}
+
+#thumbnail-two {
+	float:left;
+	width: 30%;
+	Margin-right: 45px;
+	background-color: #3D1264
+}
+#thumbnail-two .image {
+	width:100%;
+	Height:auto;
+}
+
+#thumbnail-three {
+	float: left;
+	width: 30%;
+	background-color: #3D1264
+}
+#thumbnail-three .image {	
+	Width:100%;
+	Height:auto;
+}
+
+.img-footer{
+	
+}
+.img-footer h3 {
+	color: White;
+	font-weight:bold;
+	font-size:36px;
+	Margin-top: -1px;
+	Margin-bottom: -1px;
+	/*text-Align: center;*/
+
+}
+.img-footer p {
+	Color: White;
+	
+}
+
+.Artist-Camerata-info {
+    float: left; 
+    width: 20em;
+}
+
+.Artist-Camerata-info h2 {
+    text-align: center;
+}
+
+.Artist-Camerata-info strong{
+    text-align: center;
+}
+
+
+/* ------ SHOWS ------ */
+
+.Artist-Segments a{
+ 	color: #FFF;   
+    
+}
+
+
+.Artist-Camerata-shows {
+    float: right;
+}
+
+.Camerata-shows {
+    background-color: bisque;
+    width: 37.5em;
+    border-style: solid;
+    border-width: thin;
+    
+}
+
+.Camerata-shows p{
+   	text-align: center;
+}
+
+
+/* ------ FOOTER ------ */
+
+
+
+.footer-outer {
+	background-color: #FFF;
+    bottom: auto;
+}
+
+.site-footer {
+	height: auto;
+    color: #000;
+	min-width: 760px;
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.site-footer img {
+	Width:100px;
+	Float:right;
+	Margin-top:30px;
+	Margin-right: 70px;
+}	
+.footer-nav {
+	width: 20%;
+	Float:left;
+	
+}
+.footer-nav ul {
+	list-style-type: none;
+}
+.footer-nav a {
+	Text-decoration:none;
+	color: #000000;
+	font-family:"Copperplate Gothic Bold";
+	
+}
+.footer-nav a:hover {
+	opacity: .7;
+	background-color: #CCCCCC
+}
+.footer-contact {
+ 	float: left;
+    margin-top: 3px;
+	Width: 30%;
+	font-family:"Copperplate Gothic light";
+}
+
+
+
+/* ------ GENERAL ------ */
+
+.group:before, .group:after
+{
+	content: " ";
+	display: table;
+    
+}
+
+.group:after
+{
+  	clear: both;
+}
+
+.site_outside {
+	background-color: #44146f;    
+}
+
+.site
+{
+/*width: 60em;*/
+	min-width: 800px;
+	Width: 60%;
+	margin: auto;
+	background-color: #551A8B;
+ 	color: #FFF;
+}
+
+.site a {
+	color: #FFF;
+}
+.site a:hover {
+	opacity:0.7;
+}
+.site p{
+	line-height: 150%;
+}
+
+
+/* PHP css */
+.leftside {
+	Float:left;
+	Width: 45%;
+	Padding-left: 15px;
+	Margin-top: 15px;
+}
+.leftside h1{
+	font-size:36px;
+	margin-top:0;
+	
+}
+.leftside p{
+	font-size: 16px;
+}
+.rightside {
+	float:right;
+	width:45%;
+	padding-right:15px;
+	Margin-top: 15px;
+}
+.rightside img{
+	max-width: 600px;
+	min-width: 300px;
+	
+}
+.top {
+	Width:100%;
+	float:left;
+	color:#FFFFFF;
+}
+.bottom {
+	width:100%;
+	Float:left;
+	color:#FFFFFF;
+	Padding-left: 15px;
+}
+.bottom a {
+	color: #FFFFFF;
+	text-decoration:underline;
+}
+.bottom a:hover {
+	opacity: 0.7;
+	text-decoration:none;
+}
+.Pageheading {
+	font-size:16px;
+	margin-top:-1;
+	color:white;
+	margin-left:15px;
+	
+}
+.currentartists{
+	min-width: 400px;
+	max-Width: 48%;
+	Height: 200px;
+	padding-left:15px;
+	float:left;
+}
+.currentartists p{
+	margin-left: 10px;
+	line-height: 150%;
+}
+
+.currentartists a{
+	color:white;
+	text-decoration: none;
+}
+.currentartists a:hover{
+	Text-decoration:underline;
+	
+}
+.leftpic img{
+	width:50%;
+	/*Height:50%;*/
+	float:left;
+}
+.rightinfo {
+	width:50%;
+	float:right;
+	
+}
+	
+/* ------ CURRENT ARTISTS ------ */
+
+div.artistbox {
+	display: inline-block;
+	width: 80%;
+	margin:1em;
+	color: #fff;
+}
+img.artistimg {
+	float: left;
+	margin-right: 3em;
+}
+
+div.basicinfo {
+	display: inline-block;
+	float: left;
+	color: #000;
+}
+
+div.basicinfo a {
+	color: #FFF;
+}
+
+div.basicinfo a:hover {
+	opacity:0.7;
+}
+	
