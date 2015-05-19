@@ -9,8 +9,9 @@
 }
 
 .site {
- margin: 60px;  
- padding: 1em;
+	margin: 60px;  
+	padding: 1em;
+	Min-height: 650px;
 }
 .logo img{
 	width: 100px;
@@ -408,13 +409,13 @@ body {
 	
 /* ------ CURRENT ARTISTS ------ */
 
-div.artistbox, div.bulletinbox {
+div.artistbox, div.bulletinbox, div.eventbox {
 	display: inline-block;
 	width: 80%;
 	margin:1em;
 	color: #fff;
 }
-img.artistimg, img.bulletinimg {
+img.artistimg, img.bulletinimg, img.eventimg{
 	float: left;
 	margin-right: 3em;
 }
@@ -435,19 +436,22 @@ div.basicinfo a:hover {
 	
 /* ------ BULLETIN BOARD ------ */
 
-div.bulletinbox{
+div.bulletinbox, div.eventbox{
 	width: 100%;
 }
 
-img.bulletinimg{
+img.bulletinimg, img.eventimg{
 	float: left;
+	 max-height: 285px;
 }
 
-div.description{
+div.description, div.eventdetails{
 	float: left;
 	width: 50%;
 }
-
+div.eventtitle {
+	text-decoration:underline;
+}
 p.submitted {
 	color:#07D71F;
 }
