@@ -115,10 +115,14 @@ Width: 100%
 #thumbnails p {
 	padding-left:20px
 }
+#thumbnails a {
+	Text-decoration: none;
+}
 #thumbnail-one {
 	float: left;
-	width: 30%;
-	Margin-right: 60px;
+	min-width: 240px;
+	max-width: 30%;
+	Margin-right: 4.9%;
 	background-color: #3D1264
 } 
 #thumbnail-one .image {
@@ -128,8 +132,9 @@ Width: 100%
 
 #thumbnail-two {
 	float:left;
-	width: 30%;
-	Margin-right: 45px;
+	min-width: 240px;
+	max-width: 30%;
+	Margin-right: 4.9%;
 	background-color: #3D1264
 }
 #thumbnail-two .image {
@@ -139,7 +144,8 @@ Width: 100%
 
 #thumbnail-three {
 	float: left;
-	width: 30%;
+	min-width: 240px;
+	max-width: 30%;
 	background-color: #3D1264
 }
 #thumbnail-three .image {	
@@ -156,6 +162,7 @@ Width: 100%
 	font-size:36px;
 	Margin-top: -1px;
 	Margin-bottom: -1px;
+	text-decoration: underline;
 	/*text-Align: center;*/
 
 }
@@ -265,6 +272,9 @@ footer div.logo img {
 
 /* ------ GENERAL ------ */
 
+body {
+	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 .group:before, .group:after
 {
 	content: " ";
@@ -387,21 +397,21 @@ footer div.logo img {
 	
 /* ------ CURRENT ARTISTS ------ */
 
-div.artistbox {
+div.artistbox, div.bulletinbox {
 	display: inline-block;
 	width: 80%;
 	margin:1em;
 	color: #fff;
 }
-img.artistimg {
+img.artistimg, img.bulletinimg {
 	float: left;
 	margin-right: 3em;
 }
 
-div.basicinfo {
+div.basicinfo, div.description {
 	display: inline-block;
 	float: left;
-	color: #000;
+	color: #FFF;
 }
 
 div.basicinfo a {
