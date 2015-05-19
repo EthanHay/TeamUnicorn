@@ -12,7 +12,7 @@ $debugOn = true;
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Artist Information Processing</title>
+<title>Member Information Processing</title>
 </head>
 
 <body>
@@ -31,11 +31,11 @@ if ($_REQUEST['submit'] == "Become a member")
 	'$_REQUEST[state]','$_REQUEST[phoneday]','$_REQUEST[phoneeve]','$_REQUEST[email]','$_REQUEST[password]', 'free')";
 	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
 	if ($dbh->exec($sql))
-		echo "Inserted $_REQUEST[name]";
+		header("Location: myprofile.php?signup=success");
 	else
-		echo "Not inserted"; // in case it didn't work - e.g. if database is not writeable
+		header("Location: signup.php?signup=incomplete"); // in case it didn't work - e.g. if database is not writeable
 }
-else if ($_REQUEST['submit'] == "Edit info")
+else if ($_REQUEST['submit'] == "Update info")
 {
 	$sql = "UPDATE members SET firstname = '$_REQUEST[firstname]', surname = '$_REQUEST[surname]', 
 	address= '$_REQUEST[address]', postcode = '$_REQUEST[postcode]', suburb = '$_REQUEST[suburb]',
@@ -43,9 +43,9 @@ else if ($_REQUEST['submit'] == "Edit info")
 	 email = '$_REQUEST[email]', password = '$_REQUEST[password]', ";
 	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
 	if ($dbh->exec($sql))
-		echo "Updated $_REQUEST[name]";
+		header("Location: myprofile.php?status=updated");
 	else
-		echo "Not updated";
+		header("Location: myprofile.php?status=notupdated");
 }
 
 else {

@@ -36,8 +36,8 @@ link to PayPal and subscribe to a yearly fee of $25. An admin will upgrade your 
     <input type="text" name="surname" id="surname" required>
     </p>
     <p>
-    <label class="label" for="street">Address</label>
-    <input type="text" name="street" id="street" required>
+    <label class="label" for="address">Address</label>
+    <input type="text" name="address" id="address" required>
     </p>
     <p>
     <label class="label" for="postcode">Post code</label>

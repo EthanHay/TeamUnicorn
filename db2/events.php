@@ -22,14 +22,18 @@ include("header.php");
 $sql = "SELECT id, name, artist, image, description, location, date, time, ticketlink
  FROM events ORDER BY date ASC";
 
-$today = date("d/m/Y");
+$today = strtotime("now");
 
 foreach ($dbh->query($sql) as $row)
 {
 $dt = strtotime($row[date]);	
 $date = date("d/m/Y", $dt);
 $day = date("D", $dt);	
+<<<<<<< Updated upstream
 if($date == $today or $date > $today) {
+=======
+if($dt == $today or $dt > $today) {
+>>>>>>> Stashed changes
 	
 echo "
 <div class=\"eventbox\">

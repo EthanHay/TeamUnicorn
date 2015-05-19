@@ -27,9 +27,9 @@ echo "</pre>";
 if ($_REQUEST['submit'] == "Insert Entry")
 {
 	include("upload_file_bulletin.php");
-	$sql = "INSERT INTO bulletin (title, description, image, type, contact1, contact2) VALUES 
+	$sql = "INSERT INTO bulletin (title, description, image, type, contact1, contact2, expirydate) VALUES 
 	('$_REQUEST[title]', '$_REQUEST[description]', '$newFullName', '$_REQUEST[type]', '$_REQUEST[contact1]',
-	 '$_REQUEST[contact2]')";
+	 '$_REQUEST[contact2]', '$_REQUEST[expirydate]')";
 	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
 	if ($dbh->exec($sql))
 		header("Location: bulletin.php?result=submitted");

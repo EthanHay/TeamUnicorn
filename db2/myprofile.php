@@ -11,7 +11,7 @@ include("dbconnect.php")
 
 <body>
 <?php
-include("header.html")
+include("header.php")
 ?>
 <div class="site_outside">
 <div class="site">
@@ -20,10 +20,22 @@ include("header.html")
 
   $sql = "SELECT (firstname, surname, address, postcode, suburb, state, phoneday, phoneeve, email, username, password)
   FROM members WHERE email == '$_SESSION[email]' ";
+
+echo '<h2>My details</h2>';
+
+if($_GET['result']=='updated'){
+	echo 'your information was updated';
+}
+elseif($_GET['result']=='notupdated'){
+	echo 'your information was not updated';
+}
+elseif($_GET['signup']=='success') {
+	echo 'you were successfully signed up';
+}
+
 echo '
 <form id="register" name="register" method="post" action="signupprocess.php">
 <fieldset class="subtleSet">
-	<h2>My details</h2>
 	<p>
 	<label class="label" for="firstname">First Name</label>
     <input type="text" name="firstname" id="firstname" value="$_SESSION[firstname] required>
@@ -71,7 +83,7 @@ echo '
     <input type="password" name="repassword" id="repassword" >
     </p>    
     <p>
-    <input type="submit" name="submit" id="submit" value="Edit info">
+    <input type="submit" name="submit" id="submit" value="Update info">
     </p>
     </fieldset>
 </form>
