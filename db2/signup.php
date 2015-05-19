@@ -8,13 +8,25 @@
 
 <body>
 <?php
-include("header.html");
+include("header.php");
 ?>
 <div class="site_outside">
 <div class="site">
-<h1>Sign-up form</h1>
+<h1>Join us!</h1>
+<p>To become a member of Townsville Community Music Centre, please fill out the form below. Free members can add notices to 
+our bulletin board for free, paying members can add artists for free as well. To become a paying member, follow the 
+link to PayPal and subscribe to a yearly fee of $25. An admin will upgrade your account as soon as possible. 
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="YZR8VZ66B4EJQ">
+<input type="image" src="https://www.paypalobjects.com/en_AU/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal — The safer, easier way to pay online.">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
 <form id="register" name="register" method="post" action="signupprocess.php">
 <fieldset class="subtleSet">
+	<h2>Sign up</h2>
 	<p>
 	<label class="label" for="firstname">First Name</label>
     <input type="text" name="firstname" id="firstname" required>
@@ -50,12 +62,8 @@ include("header.html");
     <input type="text" name="phoneeve" id="phoneeve" >
     </p>
     <p>
-    <label class="label" for="email">Email</label>
+    <label class="label" for="email">Email (username)</label>
     <input type="email" name="email" id="email" required>
-    </p>
-    <p>
-    <label class="label" for="username">Username</label>
-    <input type="text" name="username" id="username" required>
     </p>
     <p>
     <label class="label" for="password">Password</label>

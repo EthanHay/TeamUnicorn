@@ -6,41 +6,31 @@ include("dbconnect.php")
 <head>
 <meta charset="UTF-8">
 <title>Current Artists</title>
-<link href="sitestyles.css" rel="stylesheet" type="text/css">
+<link href="artiststyle.css" rel="stylesheet">
 </head>
-<body>    
+<body>
 <?php
-include("header.html");
-?>
+include("header.php");
+?> 
 <div class="site_outside">
-<div class="site">
-<h1>Artists</h1>
-<?php
-// display current artists in the database.
-$sql = "SELECT id, name, image, genre FROM artists";
+	<div class="site group">   
+<div class="Pageheading"><h1>Current Artists</h1></div>
 
-foreach ($dbh->query($sql) as $row)
-{
-echo "
-<div class=\"artistbox\">
-<img class=\"artistimg\" src=/~tcmc21/db$row[image] width=25% height=25%> 
-<div class=\"basicinfo\">
-	<p>
-	<a href=\"artistdetails.php?id=$row[id]\">$row[name]</a>
-	</p>
-	<p>
-	Genre: $row[genre] 
-	</p>
-</div>	
-</div>
-	";
-}
-?>
-</div>
+		<?php
+		// display current artists in the database.
+		$sql = "SELECT id, name, image, genre FROM artists";
+
+		foreach ($dbh->query($sql) as $row)
+		{
+		echo "<div class='currentartists'><a href=\"artistdetails.php?id=$row[id]\"><div class='leftpic'><img src=/~tcmc21/db$row[image]><br></div>";
+		echo "<div class='rightinfo'><p><a href=\"artistdetails.php?id=$row[id]\">$row[name]<br>";
+		echo "Genre: $row[genre]</p></a></div></div>";
+		}
+		?>
+	</div>
 </div>
 <?php
-include("footer.html");
+include("header.php");
 ?>
-
-</body>
+    </body>
 </html>

@@ -12,12 +12,17 @@ include("dbconnect.php")
 <body>
 
 <?php 
-include("header.html");
+include("header.php");
 ?>
 
 <div class="site_outside">
 <div class="site">
 <h1>Bulletin Database</h1>
+<?php
+if($_GET['result']=='notsubmitted'){
+	echo '<p class="notsubmitted">Your notice was not submitted </p>';
+}
+?>
 <form id="insert" name="insert" method="post" action="dbprocessbulletin.php" enctype="multipart/form-data">
 <fieldset class="subtleSet">
     <h2>Insert New Notice:</h2>

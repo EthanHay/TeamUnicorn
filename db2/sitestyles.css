@@ -433,3 +433,25 @@ div.basicinfo a:hover {
 	opacity:0.7;
 }
 	
+/* ------ BULLETIN BOARD ------ */
+
+div.bulletinbox{
+	width: 100%;
+}
+
+img.bulletinimg{
+	float: left;
+}
+
+div.description{
+	float: left;
+	width: 50%;
+}
+
+p.submitted {
+	color:#07D71F;
+}
+
+p.notsubmitted {
+	color:#F8787A;
+}

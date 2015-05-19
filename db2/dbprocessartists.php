@@ -36,7 +36,7 @@ echo "</pre>";
 
 if ($_REQUEST['submit'] == "Insert Entry")
 {
-	include("upload_file.php");
+	include("upload_file_artists.php");
 	$sql = "INSERT INTO artists (name, email, facebook, genre, phone, about, image, thumb) VALUES 
 	('$_REQUEST[name]', '$_REQUEST[email]', '$_REQUEST[facebook]', '$_REQUEST[genre]', '$_REQUEST[phone]', '$_REQUEST[about]','$newFullName','$thumbFullName')";
 	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 

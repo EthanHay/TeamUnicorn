@@ -26,14 +26,26 @@ echo "</pre>";
 
 if ($_REQUEST['submit'] == "Become a member")
 {
-	$sql = "INSERT INTO members (firstname, surname, address, postcode, suburb, state, phoneday, phoneeve, email, username, password, status) VALUES 
+	$sql = "INSERT INTO members (firstname, surname, address, postcode, suburb, state, phoneday, phoneeve, email, password, status) VALUES 
 	('$_REQUEST[firstname]', '$_REQUEST[surname]', '$_REQUEST[address]', '$_REQUEST[postcode]', '$_REQUEST[suburb]', 
-	'$_REQUEST[state]','$_REQUEST[phoneday]','$_REQUEST[phoneeve]','$_REQUEST[email]','$_REQUEST[username]','$_REQUEST[password]', 'free')";
+	'$_REQUEST[state]','$_REQUEST[phoneday]','$_REQUEST[phoneeve]','$_REQUEST[email]','$_REQUEST[password]', 'free')";
 	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
 	if ($dbh->exec($sql))
 		echo "Inserted $_REQUEST[name]";
 	else
 		echo "Not inserted"; // in case it didn't work - e.g. if database is not writeable
+}
+else if ($_REQUEST['submit'] == "Edit info")
+{
+	$sql = "UPDATE members SET firstname = '$_REQUEST[firstname]', surname = '$_REQUEST[surname]', 
+	address= '$_REQUEST[address]', postcode = '$_REQUEST[postcode]', suburb = '$_REQUEST[suburb]',
+	 state = '$_REQUEST[state]', phoneday = '$_REQUEST[phoneday]', phoneeve = '$_REQUEST[phoneeve]', 
+	 email = '$_REQUEST[email]', password = '$_REQUEST[password]', ";
+	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
+	if ($dbh->exec($sql))
+		echo "Updated $_REQUEST[name]";
+	else
+		echo "Not updated";
 }
 
 else {

@@ -36,7 +36,7 @@ echo "</pre>";
 
 if ($_REQUEST['submit'] == "Insert Entry")
 {
-	include("upload_file.php");
+	include("upload_file_events.php");
 	$sql = "INSERT INTO events (name, image, description, location, date) VALUES 
 	('$_REQUEST[name]', '$newFullName', '$_REQUEST[description]', '$_REQUEST[location]', '$_REQUEST[date]')";
 	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 

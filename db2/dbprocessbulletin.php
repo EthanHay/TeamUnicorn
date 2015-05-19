@@ -26,15 +26,15 @@ echo "</pre>";
 
 if ($_REQUEST['submit'] == "Insert Entry")
 {
-	include("upload_file.php");
+	include("upload_file_bulletin.php");
 	$sql = "INSERT INTO bulletin (title, description, image, type, contact1, contact2) VALUES 
 	('$_REQUEST[title]', '$_REQUEST[description]', '$newFullName', '$_REQUEST[type]', '$_REQUEST[contact1]',
 	 '$_REQUEST[contact2]')";
 	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
 	if ($dbh->exec($sql))
-		echo "Inserted $_REQUEST[name]";
+		header("Location: bulletin.php?result=submitted");
 	else
-		echo "Not inserted"; // in case it didn't work - e.g. if database is not writeable
+		header("Location: addnotice.php?result=notsubmitted");// in case it didn't work - e.g. if database is not writeable
 }
 
 else {
