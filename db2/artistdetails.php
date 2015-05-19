@@ -15,48 +15,13 @@ echo "$row[name]";
 }
 ?>
 </title>
-<link href="artiststyle.css" rel="stylesheet">
+<link href="sitestyles.css" rel="stylesheet">
 </head>
 
 <body>
-<header class="site-header group">
-<!--- NAV BAR ---> 
-<div id="navigation-outer">    
-    <nav id="navigation-bar">   
-        <a href="Home.html"><img src="images/TCMC_Images/Site/TCMC150100.jpg"></a>
-        <ul id="site-navigation">
-           <li> 
-                <a href="Home.html">Home</a>    
-            </li> 
-            <li> 
-                <a href="Forum.html">Bulletin</a>    
-            </li> 
-            <li> 
-                <a href="Events.html">Events</a>    
-            </li>
-            <li> 
-                <a href="Artists.html">Artists</a>    
-            </li>
-            <li> 
-                <a href="About.html">About</a>    
-            </li>
-            <li> 
-                <a href="Join.html">Join Us</a>    
-            </li>
-            <li> 
-                <a href="Contact.html">Contact</a>    
-            </li> 
-            <li> 
-                <a href="Members.html">Members</a>    
-            </li>  
-            <li> 
-                <a href="Login.html" class="1">Login</a>    
-            </li>  
-        </ul>
-    </nav>
-</div>
-    
-</header>
+<?php
+include("header.php");
+?>
 <div class="site_outside">
 	<div class="site group">
 	<?php
@@ -78,52 +43,12 @@ echo "$row[name]";
     ?>
     </div>
 </div>
-<!--- FOOTER --->     
-<div class="footer-outer group">
-    <footer class="site-footer">
-        <div class="footer-nav">
-            <ul id="footer-navigation">
-                <li> 
-                <a href="Home.html">Home</a>    
-            </li> 
-            <li> 
-                <a href="Forum.html">Bulletin</a>    
-            </li> 
-            <li> 
-                <a href="Events.html">Events</a>    
-            </li>
-            <li> 
-                <a href="Artists.html">Artists</a>    
-            </li>
-            <li> 
-                <a href="About.html">About</a>    
-            </li>
-            <li> 
-                <a href="Join.html">Join Us</a>    
-            </li>
-            <li> 
-                <a href="Contact.html">Contact</a>    
-            </li> 
-            <li> 
-                <a href="Members.html">Members</a>    
-            </li>  
-            <li> 
-                <a href="Login.html" class="1">Login</a>    
-            </li>   
-            </ul>        
-        </div>
-        
-        <div class="footer-contact">
-            <p>Contact Info:</p>
-            <p> Phone:07 4724 2086 Mobile: 04 0225 5182</p> <p>Address: Townsville Civic Theatre, 41 Boundary Street, Townsville, Qld 4810</p> <a href="mailto:admin@townsvillemusic.org.au"                   target="_top">admin@townsvillemusic.org.au</a>
-        </div>
-        
-        <div class="Logo">
-          <img src="images/TCMC_Images/Site/TCC83100.png" alt="Townsville City Logo">
-          <img src="images/TCMC_Images/Site/Qldlogo150169.jpg" alt="Queensland Logo">
-        
-        </div>
 
-</footer>  
+
+<?php
+include("footer.html");
+?>
+ 
+
 </body>
 </html>
