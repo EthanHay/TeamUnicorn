@@ -46,8 +46,6 @@ label.label {
 	Width:auto;
 	Margin:auto;
 	Margin-top: 15px;
-	
-	
 }
 #site-navigation li
 {    
@@ -85,10 +83,23 @@ label.label {
 	Height: 6.5em;
     background-color: #FFF;
 	margin-right:auto;
-	margin-left:auto;
-	
+	margin-left:auto;	
+}
+#navigation-outer .login{
+	Float:right;
+}
+/*
+#navigation-outer .right{
+	Float:right;
+	Width:40%;	
 }
 
+#navigation-outer .left{
+	Width:60%;
+	position:absolute;
+	float: left;
+}
+*/
 
 /* ------ Main ------ */
 
