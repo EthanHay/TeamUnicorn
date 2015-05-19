@@ -6,12 +6,14 @@ include("dbconnect.php")
 <head>
 <meta charset="UTF-8">
 <title>Current Artists</title>
-<link href="artiststyle.css" rel="stylesheet">
+<link href="sitestyles.css" rel="stylesheet">
 </head>
 <body>
+<!--- NAV BAR ---> 
 <?php
 include("header.php");
-?> 
+?>
+ 
 <div class="site_outside">
 	<div class="site group">   
 <div class="Pageheading"><h1>Current Artists</h1></div>
@@ -29,8 +31,9 @@ include("header.php");
 		?>
 	</div>
 </div>
+<!--- FOOTER --->     
 <?php
-include("header.php");
+include("footer.html");
 ?>
-    </body>
+</body>
 </html>
