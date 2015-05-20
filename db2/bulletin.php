@@ -53,14 +53,14 @@ foreach ($dbh->query($sql) as $row) {
 			";
 		}
 }
-$sql = "SELECT id, title, description, image, type, contact1, contact2 FROM bulletin WHERE type = 'Lesson' ";
+$sql = "SELECT id, title, description, image, type, contact1, contact2, expirydate FROM bulletin WHERE type = 'Lesson' ";
 echo "<h2>Lessons</h2>";
 
 foreach ($dbh->query($sql) as $row){
 	$dt = strtotime($row[expirydate]);	
 	$date = date("d/m/Y", $dt);
 	
-	if($date == $today or $date > $today)
+	if($dt == $date or $dt > $date)
 		{
 		echo "
 		<div class=\"bulletinbox\">
@@ -76,7 +76,7 @@ foreach ($dbh->query($sql) as $row){
 			";
 		}
 }
-$sql = "SELECT id, title, description, image, type, contact1, contact2 FROM bulletin WHERE type = 'Announcement' ";
+$sql = "SELECT id, title, description, image, type, contact1, contact2, expirydate FROM bulletin WHERE type = 'Announcement' ";
 
 echo "<h2>Announcements</h2>";
 
@@ -84,7 +84,7 @@ foreach ($dbh->query($sql) as $row){
 	$dt = strtotime($row[expirydate]);	
 	$date = date("d/m/Y", $dt);
 	
-	if($date == $today or $date > $today)
+	if($dt == $date or $dt > $date)
 		{
 		echo "
 		<div class=\"bulletinbox\">
