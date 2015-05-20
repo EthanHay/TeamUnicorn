@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>About</title>
+<link href="artiststyle.css" rel="stylesheet">
+</head>
+    
+<body>    
+<header class="site-header group">
+
+<!--- NAV BAR ---> 
+<div class="navigation-outer">    
+    <nav class="navigation-bar">   
+        <img src="images/TCMC_Images/Site/TCMC150100.jpg">
+        <ul class="site-navigation">
+           <li> 
+                <a href="Home.html">Home</a>    
+            </li>  
+            <li> 
+                <a href="Events.html">Events</a>    
+            </li>
+            <li> 
+                <a href="Artists.html">Artists</a>    
+            </li>
+            <li> 
+                <a href="Forum.html">Forum</a>    
+            </li>  
+            <li> 
+                <a href="Join.html">Join Us</a>    
+            </li> 
+            <li> 
+                <a href="About.html">About</a>    
+            </li> 
+            <li> 
+                <a href="Contact.html">Contact</a>    
+            </li> 
+        </ul>
+    </nav>
+</div>
+    
+</header>
+    
+<div class="site_outside">
+<div class="site group"> 
+    
+    <div class="about_us"> 
+        <h2>About us</h2>
+        <p>Welcome to the Townsville Community Music Centre website!</p>
+    
+        <p>Based in Townsville, North Qld, the Music Centre presents concerts and workshops throughout the year, in a diverse range of genres including classical, jazz, folk, blues, world              and contemporary music, featuring touring artists and locally-based professional and emerging artists
+        </p>
+    
+        <p>Townsville Community Music Centre is a not-for-profit, incorporated organisation serving musicians and their audience in North Queensland. The Music Centre's role includes                    facilitation, presentation and promotion of events, functions, education, workshops, concerts, festivals in Townsville, and surrounding centres.
+        </p>
+    
+        <img src="images/TCMC_Images/Site/CivicFront600.jpg" alt="Townsville Music Center">
+    
+        <p>Based in Townsville, North Queensland, Australia, it promotes local artists and presents performances by inter- and intra-state and international artists.
+           It is involved in the instigation of projects based on cross collaboration with other artistic disciplines, and it promotes the work of North Queensland musicians outside the                region, organising tours and promoting their work.
+           The Music Centre offers various levels of membership. To join and experience the benefits that membership provides when using this site please click here to join now. You can also            join by printing out the form found at the bottom of this page. </p>
+    </div>
+    
+    <div class="history_TCMC">
+        <h2>History of the TCMC</h2>
+    
+        <p>The Townsville Community Centre began in early 1983 when a group of people with a shared interest in musical matters decided to address the local paucity in musical opportunities.            An early objective of the centre was to encourage the establishment of tertiary music education in Townsville, and provide classes, courses, and workshops in a variety of                    musical styles, levels, instruments and experiences. 
+           The Centre ran a significant concert program for many years and promoted emerging musicians. Reflecting the Centre's increasing workload as an information and referral service,              this collection includes documents on concerts, training, instruments, musicians, sheet music, performance and rehearsal spaces, functions and events, sources for grants and                  funding, legal matters, continuing professional development of local musicians, and integrating overseas professional musicians with local community musicians. </p>
+    </div>
+    
+    
+</div>   
+</div>
+    
+  <!--- FOOTER --->     
+<div class="footer-outer group">
+    <footer class="site-footer">
+        <div class="footer-contact">
+            <p>Contact Info:</p>
+            <p> Phone:07 4724 2086 Mobile: 04 0225 5182</p> <p>Address: Townsville Civic Theatre, 41 Boundary Street, Townsville, Qld 4810</p> <a href="mailto:admin@townsvillemusic.org.au " target="_top">admin@townsvillemusic.org.au</a>
+        </div>
+    
+</footer>     
+</body>
+</html>
