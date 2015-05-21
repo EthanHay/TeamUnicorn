@@ -1,3 +1,10 @@
+<?php session_start(); // this should be the very first statement when using sessions
+// Report all PHP errors 
+error_reporting(E_ALL);
+/*	This file is a login page that will send the user to a secure page.
+	There's a session 'msg' variable, which will be blank the first time (when not set).
+*/
+ ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,7 +21,7 @@ include("header.php");
     <div class="site group"> 
         
         <div id="slideshow">
-            <img src="images/TCMC_Images/Site/CIVIC%20C2%20LOGO.jpg" alt="Slideshow1">
+            <a href="signup.php"><img src="images/signup.jpg" alt="Slideshow1"></a>
         </div>
         
         
@@ -46,7 +53,7 @@ include("header.php");
                 <img src="images/TCMC_Images/bulletin/TCBlogo201.jpg" alt="bandName" class="image">
                     <div class="img-footer">
                     	<h3>Events</h3>	
-                        <p>Make sure you purchase your tickets for our upcoming events...</p>
+                        <p>Make sure you purchase your tickets for our upcoming events.</p>
 						<p>Click here to view our upcoming events.</p>
                     </div>
 				</a>		

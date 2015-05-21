@@ -44,7 +44,7 @@ if ((($_FILES["imagefile"]["type"] == "image/gif")
 		// check to see if a file with that name already exists in our destination directory
 		// you could rename the files so that this is not a concern (e.g. with a unique identify based on time or database details)
 		// so this is just for demonstration purposes
-		if (file_exists("images/bulletin/" . $_FILES["imagefile"]["name"]))
+		if (file_exists("images/" . $_FILES["imagefile"]["name"]))
 		{
 			echo $_FILES["imagefile"]["name"] . " already exists. \n";
 		}
@@ -65,7 +65,7 @@ if ((($_FILES["imagefile"]["type"] == "image/gif")
 			$size = getimagesize($newFullName);
             echo "<img src=\"$newFullName\" " . $size[3] . " /><br />\n";
 			
-			/*// NOW, create a separate thumbnail from original image, if selected in form
+			// NOW, create a separate thumbnail from original image, if selected in form
             if (isset($_REQUEST['thumbnailChoice']))
             {
                 // demo of the {} syntax as well...
@@ -78,7 +78,7 @@ if ((($_FILES["imagefile"]["type"] == "image/gif")
                 echo "Stored thumnail as: $thumbFullName<br />\n";
                 $size = getimagesize($thumbFullName);
                 echo "<img src=\"$thumbFullName\" " . $size[3] . " /><br />\n";
-            }*/
+            }
 		}
 	}
 }

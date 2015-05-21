@@ -1,6 +1,8 @@
 <?php
-include("dbconnect.php")
+include("dbconnect.php");
+//include("authenticate.php");
 ?>
+
 <!doctype html>
 <html>
 <head>
@@ -11,7 +13,7 @@ include("dbconnect.php")
 
 <body>
 <?php
-include("header.php")
+include("header.php");
 ?>
 <div class="site_outside">
 <div class="site">
@@ -38,7 +40,7 @@ echo '
 <fieldset class="subtleSet">
 	<p>
 	<label class="label" for="firstname">First Name</label>
-    <input type="text" name="firstname" id="firstname" value="$_SESSION[firstname] required>
+    <input type="text" name="firstname" id="firstname" required>
     </p>
     <p>
     <label class="label" for="surname">Surname</label>
@@ -99,6 +101,9 @@ echo '
 	}
 	
 ?>
+
+<a href="addartist.php">Edit artists</a><br>
+<a href="addmember.php">Edit members</a>
 </div>
 </div>
 <?php

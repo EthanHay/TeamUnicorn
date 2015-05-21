@@ -5,9 +5,7 @@
    The X option demonstrates this ("silent" delete).
 */
 include("dbconnect.php");
-
 $debugOn = true;
-
 if ($_REQUEST['submit'] == "X")
 {
 	$sql = "DELETE FROM artists WHERE id = '$_REQUEST[id]'";
@@ -33,7 +31,6 @@ echo "<pre>";
 print_r($_REQUEST); // a useful debugging function to see everything in an array, best inside a <pre> element
 echo "</pre>";
 // execute the appropriate query based on which submit button (insert, delete or update) was clicked
-
 if ($_REQUEST['submit'] == "Insert Entry")
 {
 	include("upload_file_artists.php");
@@ -56,9 +53,7 @@ else if ($_REQUEST['submit'] == "Delete Entry")
 }
 else if ($_REQUEST['submit'] == "Update Entry")
 {
-	$sql = "UPDATE artists SET name = '$_REQUEST[name]', image = '$_REQUEST[image]', 
-	thumb= '$_REQUEST[thumb]', email = '$_REQUEST[email]', facebook = '$_REQUEST[facebook]',
-	 genre = '$_REQUEST[genre]', phone = '$_REQUEST[phone]', about = '$_REQUEST[about]' ";
+	$sql = "UPDATE artists SET name = '$_REQUEST[name]', image = '$_REQUEST[image]', thumb= '$_REQUEST[thumb]', email = '$_REQUEST[email]', facebook = '$_REQUEST[facebook]', genre = '$_REQUEST[genre]', phone = '$_REQUEST[phone]', about = '$_REQUEST[about]' WHERE id = '$_REQUEST[id]'";
 	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
 	if ($dbh->exec($sql))
 		echo "Updated $_REQUEST[name]";
@@ -69,14 +64,11 @@ else {
 	echo "This page did not come from a valid form submission.<br />\n";
 }
 echo "</strong></p>\n";
-
 // Basic select and display all contents from table 
-
 echo "<h2>Artists in Database Now</h2>\n";
 $sql = "SELECT * FROM artists";
 $result = $dbh->query($sql);
 $resultCopy = $result;
-
 if ($debugOn) {
 	echo "<pre>";	
 // one row at a time:
@@ -97,7 +89,6 @@ if ($debugOn) {
 //{
 //	print $row[name] .' - '. $row[phone] . "<br />\n";
 //}
-
 // close the database connection 
 $dbh = null;
 ?>

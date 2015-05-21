@@ -27,6 +27,16 @@ link to PayPal and subscribe to a yearly fee of $25. An admin will upgrade your 
 <form id="register" name="register" method="post" action="signupprocess.php">
 <fieldset class="subtleSet">
 	<h2>Sign up</h2>
+<?php if($_GET['result']=='updated'){
+	echo 'your information was updated';
+}
+elseif($_GET['result']=='notupdated'){
+	echo 'your information was not updated';
+}
+elseif($_GET['signup']=='success') {
+	echo 'you were successfully signed up';
+}
+?>
 	<p>
 	<label class="label" for="firstname">First Name</label>
     <input type="text" name="firstname" id="firstname" required>

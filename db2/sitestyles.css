@@ -450,7 +450,7 @@ div.description, div.eventdetails{
 	width: 50%;
 }
 div.eventtitle {
-	text-decoration:underline;
+	text-decoration:none;
 }
 p.submitted {
 	color:#07D71F;

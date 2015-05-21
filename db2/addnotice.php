@@ -52,7 +52,7 @@ if($_GET['result']=='notsubmitted'){
       <input type="text" name="contact2" id="contact2">
     </p>
     <p>
-      <label class="label"  for="expirydate">Expiration date (dd-mm-yyyy): </label>
+      <label class="label"  for="expirydate">Expiration date (yyyy--mm-dd): </label>
       <input type="text" name="expirydate" id="expirydate">
     </p>
     <p>
