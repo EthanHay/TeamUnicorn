@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Artists</title>
+<link href="artiststyle.css" rel="stylesheet">
+</head>
+    
+<body>    
+<header class="site-header group">
+
+<!--- NAV BAR ---> 
+<div class="navigation-outer">    
+    <nav class="navigation-bar">   
+        <img src="images/TCMC_Images/Site/TCMC150100.jpg">
+        <ul class="site-navigation">
+           <li> 
+                <a href="Home.html">Home</a>    
+            </li>  
+            <li> 
+                <a href="Events.html">Events</a>    
+            </li>
+            <li> 
+                <a href="Artists.html">Artists</a>    
+            </li>
+            <li> 
+                <a href="Forum.html">Forum</a>    
+            </li>  
+            <li> 
+                <a href="Join.html">Join Us</a>    
+            </li> 
+            <li> 
+                <a href="About.html">About</a>    
+            </li> 
+            <li> 
+                <a href="Contact.html">Contact</a>    
+            </li> 
+        </ul>
+    </nav>
+</div>
+    
+</header>
+
+
+<div class="site_outside">
+<div class="site group"> 
+    
+    <h2>How to buy the right piano</h2>
+    
+    <p>Purchasing a piano for your home can be a difficult task if you don't know what you want. Luckily, all it takes is a little knowledge and a bit of preparation to find that perfect piece. The first step in this process is finding a piano with a musical tone you enjoy. To find this, visit any of your local piano dealers and sample each one. If you can't play yourself, have the salesperson play for you. When you play, find a piano which feels most responsive to your touch. Once you have discovered what you would like to purchase, then you can choose whether to buy from a retailer or second hand. </p>
+    
+    
+    <h3>What are the differences between buying a piano from a retail dealer or second hand?</h3>
+    
+        <p>When purchasing from a retailer although more expensive you can be guaranteed that the piano will be in a good condition. New pianos also come with a manufacturer’s warranty, a complimentary tuning and a moving guarantee. If your piano becomes damaged on the way to your house, the fault lies upon the dealer and not yourself. Many dealers also offer a trade up policy which will give you the full purchased price of the piano if ever you wish up upgrade.</p>
+    
+    <p>If buying privately you will receive none of the extras supplied by retails, less selection of choice and it's up to you to restore the pianos tone. Despite the drawbacks, buying a used piano will come a much lesser cost. You can also hire a Registered Piano Technician to guide you through your purchase. Although the details they give over the phone will be invaluable, it could be quite costly for onsite evaluations, especially when traveling to see multiple pianos </p>
+        
+    
+    <h3>How do I tell if a Piano is in a good condition?</h3>
+        <p>Often problems that look like major problems have an easy fix. It is the small problems that are problematic. Look out for pianos that sound out of tune when played by themselves. This normally indicates the pin block has gone bad. Depending on the severity, this could mean the end of that piano. Another serious problem is the presence of rattles or buzzes. This could mean that the wooden bridge has split. </p>
+    
+    <h3> What should I take out of this?</h3>
+    <p>The most important part of buying a used piano is calling a Registered Piano Technician. These guys will give you the pros and cons of any model you desire, and if they are with you  they can give you an approximation of the rebuilding cost.</p>
+    
+    <br>
+    <br>
+    
+    <p>If you are looking for new/used pianos check out our <a href="#">bullitin board</a> for some outstanding deals</p>
+    
+
+</div>   
+</div>    
+
+
+
+  <!--- FOOTER --->     
+<div class="footer-outer group">
+    <footer class="site-footer">
+        <div class="footer-nav">
+            <ul class="site-navigation">
+                <li> 
+                    <a href="#">Home</a>    
+                </li>  
+                <li> 
+                    <a href="#">Events</a>    
+                </li>
+                <li> 
+                    <a href="#">Artists</a>    
+                </li>
+                <li> 
+                    <a href="#">Forum</a>    
+                </li>  
+                <li> 
+                    <a href="#">Join Us</a>    
+                </li> 
+                <li> 
+                    <a href="#">About</a>    
+                </li> 
+                <li> 
+                    <a href="#">Contact</a>    
+                </li> 
+            </ul>        
+        </div>
+        
+        <div class="footer-contact">
+            <p>Contact Info:</p>
+            <p> Phone:07 4724 2086 Mobile: 04 0225 5182</p> <p>Address: Townsville Civic Theatre, 41 Boundary Street, Townsville, Qld 4810</p> <a href="mailto:admin@townsvillemusic.org.au"                   target="_top">admin@townsvillemusic.org.au</a>
+        </div>
+        
+        <div class="Logo">
+            <img src="images/TCMC_Images/Site/TCC83100.png" alt="Townsville City Logo">
+            <img src="images/TCMC_Images/Site/Qldlogo150169.jpg" alt="Queensland Logo">
+        
+        </div>
+
+</footer>     
+</div>
+    </body>
+</html>
