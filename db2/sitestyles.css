@@ -38,6 +38,14 @@ label.label {
 	margin-left: 1em;
 }
 
+span.req {
+	color:red;
+}
+
+p.smalltext {
+	font-size: 0.8em;
+}
+
 /* ------ NAVIGATION BAR ------ */
 
 #navigation-bar {

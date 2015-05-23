@@ -11,6 +11,9 @@ include("dbconnect.php")
 
 <body>
 <h1>Artist Database</h1>
+
+<!--------------------------- NEW ARTIST  ------------------------------>
+
 <form id="insert" name="insert" method="post" action="dbprocessartists.php" enctype="multipart/form-data">
 <fieldset class="subtleSet">
     <h2>Insert New Artist:</h2>
@@ -39,8 +42,13 @@ include("dbconnect.php")
       <input type="text" name="phone" id="phone">
     </p>
     <p>
-      <label class="label"  for="genre">Main Genre: </label>
-      <input type="text" name="genre" id="genre">
+      <label class="label"  for="category">Categories: </label>
+      <?php
+	  $sql = "SELECT * FROM categories";
+	  foreach ($dbh->query($sql) as $cat) {
+		  echo "<input type='checkbox' name='category[]' id='category' value='$cat[catname]'>$cat[catname] <br>";
+	  }
+	  ?>
     </p>
     <p>
       <label class="label"  for="about">About the Artist: </label>
@@ -52,14 +60,97 @@ include("dbconnect.php")
 </fieldset>
 </form>
 
+<!--------------------------- FEATURED ARTIST  ------------------------------>
+<fieldset class="subtleSet">
+<form id="featureForm" name="featureForm" method="post" action="dbprocessartists.php">
+<h2>Featured artist</h2>
+<?php
+
+if($_GET['featart']=='updated'){
+	echo '<p class="notsubmitted">Featured artist was updated</p>';
+}
+
+
+$sqlfeat = "SELECT * FROM artists";
+foreach ($dbh->query($sqlfeat) as $row){
+	echo "$row[name]<input type='radio' name='featured' id='featured' value='$row[name]'/> <br>";
+}
+?>
+<input type="submit" name="submit" value="Update Featured Artist">
+</form>
+</fieldset>
+
+<!--------------------------- ADD/EDIT CATEGORIES  ------------------------------>
+<form method="post" action="dbprocessartists.php">
+<h2>Manage categories</h2>
+<fieldset class="subtleSet">
+<label class="label">Add category:</label>
+<input type="text" name="newcat" id="newcat"/>
+<input type="submit" name="submit" value="Add category">
+</fieldset>
+</form>
+
+<fieldset class="subtleSet">
+<h3>Edit categories</h3>
+<?php
+// Display what's in the database at the moment.
+$sql = "SELECT * FROM categories";
+foreach ($dbh->query($sql) as $catrow)
+{
+?>
+<form method="post" action="dbprocessartists.php">
+<?php
+echo "<input type='text' name='catname' value='$catrow[catname]' /> <input type='hidden' name='id' value='$catrow[id]' />"
+?>  
+<input type="submit" name="submit" value="Update category">
+<input type="submit" name="submit" value="Delete category" class="deleteButton"><br>
+</form>
+<?php
+}
+?>
+</fieldset>
+
+<fieldset class="subtleSet">
+<h3>Edit artist's categories</h3>
+
+<?php
+	$sqlart = "SELECT id, name FROM artists";
+	foreach ($dbh->query($sqlart) as $art){
+		 echo "<form method='post' action='dbprocessartists.php'>
+		 		<label name='artname' id='artname' value='artname'>$art[name]</label>
+				<input type='hidden' name='artid' id='artid' value='$art[id]'>
+				";
+	  $sql = "SELECT * FROM categories";
+	  foreach ($dbh->query($sql) as $cat) {
+		 
+		  echo "<input type='checkbox' name='category[]' id='category' value='$cat[catname]'";
+		  
+		  $sqlac = "SELECT * FROM art_cat";
+		  foreach ($dbh->query($sqlac) as $ac) {
+			  if ($art['id'] == $ac['artid'] && $cat['id'] == $ac['catid']){
+				  echo "checked";
+			  }
+		  }
+		  echo ">$cat[catname]";
+	  }
+	 
+	  echo"<input type='submit' name='submit' value='Update artist categories'><br><br>";
+	  ?>
+      
+</form>
+<?php
+	}
+?>
+</fieldset>
+<!--------------------------- CURRENT ARTIST  ------------------------------>
+
 <fieldset class="subtleSet">
 <h2>Current Artists:</h2>
 <blockquote>
   <p>
     <input type="text" value="Name" class="description"/> <input type="text" value="Image" class="description"/> 
-    <input type="text" value="Email" class="description"/> <input type="text" value="Facebook" class="description"/>
-    <input type="text" value="Genre" class="description"/> <input type="text" value="Phone" class="description"/> 
-    <input type="text" value="About" class="description"/>
+    <input type="text" value="Email" class="description"/> <input type="text" value="Website" class="description"/>
+    <input type="text" value="Phone" class="description"/> <input type="text" value="About" class="description"/>
     <?php
 // Display what's in the database at the moment.
 $sql = "SELECT * FROM artists";
@@ -74,7 +165,7 @@ foreach ($dbh->query($sql) as $row)
 	 
 	echo "<input type='text' name='name' value='$row[name]' /> <input type='text' name='image' value='$row[image]' />
 	<input type='text' name='email' value='$row[email]' /> <input type='text' name='facebook' value='$row[facebook]' /> 
-	<input type='text' name='phone' value='$row[phone]' /> <input type='text' name='genre' value='$row[genre]' /> 
+	<input type='text' name='phone' value='$row[phone]' /> 
 	<input type='text' name='about' value='$row[about]' />\n";
 	echo "<input type='hidden' name='id' value='$row[id]' />";
 ?>

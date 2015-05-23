@@ -26,10 +26,11 @@ echo "</pre>";
 
 if ($_REQUEST['submit'] == "Insert Entry")
 {
+	$expirydate = "$_REQUEST[exyear]-$_REQUEST[exmonth]-$_REQUEST[exday]";	
 	include("upload_file_bulletin.php");
 	$sql = "INSERT INTO bulletin (title, description, image, type, contact1, contact2, expirydate) VALUES 
 	('$_REQUEST[title]', '$_REQUEST[description]', '$newFullName', '$_REQUEST[type]', '$_REQUEST[contact1]',
-	 '$_REQUEST[contact2]', '$_REQUEST[expirydate]')";
+	 '$_REQUEST[contact2]', '$expirydate')";
 	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
 	if ($dbh->exec($sql))
 		header("Location: bulletin.php?result=submitted");
@@ -73,6 +74,6 @@ if ($debugOn) {
 // close the database connection 
 $dbh = null;
 ?>
-<p><a href="addbulletin.php">Return to database test page</a></p>
+<p><a href="addnotice.php">Return to database test page</a></p>
 </body>
 </html>

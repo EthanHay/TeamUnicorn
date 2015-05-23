@@ -20,13 +20,13 @@ include("header.php");
 
 		<?php
 		// display current artists in the database.
-		$sql = "SELECT id, name, image, genre, thumb FROM artists";
+		$sql = "SELECT id, name, image, thumb FROM artists";
 
 		foreach ($dbh->query($sql) as $row)
 		{
 		echo "<div class='currentartists'><a href=\"artistdetails.php?id=$row[id]\"><div class='leftpic'><img src=/~tcmc21/db2/$row[thumb]><br></div>";
 		echo "<div class='rightinfo'><p><a href=\"artistdetails.php?id=$row[id]\">$row[name]<br>";
-		echo "Genre: $row[genre]</p></a></div></div>";
+		echo "Genre: </p></a></div></div>";
 		}
 		?>
 	</div>

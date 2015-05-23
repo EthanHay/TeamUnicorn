@@ -37,33 +37,34 @@ elseif($_GET['signup']=='success') {
 	echo 'you were successfully signed up';
 }
 ?>
+	<p class="smalltext"><span class="req">*</span> = required field</p>
 	<p>
-	<label class="label" for="firstname">First Name</label>
+	<label class="label" for="firstname">First Name <span class="req">*</span></label>
     <input type="text" name="firstname" id="firstname" required>
     </p>
     <p>
-    <label class="label" for="surname">Surname</label>
+    <label class="label" for="surname">Surname <span class="req">*</span></label>
     <input type="text" name="surname" id="surname" required>
     </p>
     <p>
-    <label class="label" for="address">Address</label>
+    <label class="label" for="address">Address <span class="req">*</span></label>
     <input type="text" name="address" id="address" required>
     </p>
     <p>
-    <label class="label" for="postcode">Post code</label>
+    <label class="label" for="postcode">Post code <span class="req">*</span></label>
     <input type="text" name="postcode" id="postcode" pattern=".{4,4}" required title="4 characters needed" size="4"><br>
     </p>
     <p>
-    <label class="label" for="suburb">Suburb</label>
+    <label class="label" for="suburb">Suburb <span class="req">*</span></label>
     <input type="text" name="suburb" id="suburb" required>
     </p>
     <p>
-    <label class="label" for="state">State</label>
+    <label class="label" for="state">State <span class="req">*</span></label>
     <select name="state" id="state"><option>ACT</option><option>NSW</option><option>NT</option><option selected>Qld</option><option>SA</option><option>Tas
     </option><option>Vic</option><option>WA</option></select>
 	</p>
     <p>
-    <label class="label" for="phoneday">Phone Day</label>
+    <label class="label" for="phoneday">Phone Day <span class="req">*</span></label>
     <input type="text" pattern=".{10,10}" required title="please check the phone number. No country code needed"
     name="phoneday" id="phoneday" >
     </p>
@@ -72,11 +73,11 @@ elseif($_GET['signup']=='success') {
     <input type="text" name="phoneeve" id="phoneeve" >
     </p>
     <p>
-    <label class="label" for="email">Email (username)</label>
+    <label class="label" for="email">Email (username) <span class="req">*</span></label>
     <input type="email" name="email" id="email" required>
     </p>
     <p>
-    <label class="label" for="password">Password</label>
+    <label class="label" for="password">Password <span class="req">*</span></label>
     <input type="password" name="password" id="password" pattern=".{6,}" required title="Please make sure your password has more than 6 characters">
     </p>
     <p>

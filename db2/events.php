@@ -77,12 +77,17 @@ if($nameid != 0) {
 
 
 echo"
-	<p>@$row[location], $day $date, $row[time]</p>
-	<p>$row[description]</p>
-	<p>
-	<a href=\"$row[ticketlink]\" target=\"_blank\">Get tickets here</a>
-	</p>
+	<p>$row[location], $day $date, $row[time]</p>
+	<p>$row[description]</p>";
 
+if ($row['ticketlink'] != ""){	
+	echo "<p>
+	<a href=\"$row[ticketlink]\" target=\"_blank\">Get tickets here</a>
+	</p>";
+}
+else 
+	echo "Tickets available at a later point";
+echo "
 </div>	
 </div>
 	";
