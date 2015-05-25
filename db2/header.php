@@ -10,25 +10,34 @@ error_reporting(E_ALL);
 <div id="navigation-outer">
 	<div class="login">
 		<?php
+		echo $_SESSION['msg'];
 		// Only display the login form if the user is not logged in
 		if (!isset($_SESSION['email']))
-		?>
-			
-			<form id="login" name="login" method="post" action="myprofile.php">
+		{
+		
+			echo
+			"<form id='login' name='login' method='post' action='myprofile.php'>
 			<fieldset>
 			<legend>Login</legend>
-			<label for="email">Email:</label>
-			<input type="email" name="email" id="email">
+			<label for='email'>Email:</label>
+			<input type='email' name='email' id='email'>
 			<br>
-			<label for="password">Password:</label>
-			<input type="password" name="password" id="password">
-			
-			
+			<label for='password'>Password:</label>
+			<input type='password' name='password' id='password'>
 			<br>
-			<input type="submit" name="submit" value="Login" id="submitBTN">
-			</form>
-		<?php 
-		if (isset($_SESSION['email'])) echo '<a href="logout.php">Logout</a>';
+			<input type='submit' name='Login' value='Login' id='submitBTN'>
+			</form>";
+			
+			unset($_SESSION['msg']);
+		}
+		if (isset($_SESSION['email']))
+		{
+			
+		 echo "
+		 	<a href='myprofile.php'>$_SESSION[name]</a><br>
+		 	<a href='logout.php'>Logout</a>";
+		 unset($_SESSION['msg']);
+		}
 		?>
 	</div>
     <nav id="navigation-bar">   
