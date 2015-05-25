@@ -24,7 +24,7 @@ if (!isset($_SESSION['email']))
 	$password = $_POST['password'];
 
 	//check if we came from a form (with username) - this could be more robust (check for our specific login form)
-	if (isset($email) && isset($password))
+	if (isset($email) && isset($password) && $_REQUEST['submit'] == 'Login'))
 	{ 
 	
 	
