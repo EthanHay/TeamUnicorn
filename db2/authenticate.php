@@ -33,7 +33,7 @@ if (!isset($_SESSION['email']))
 	    $loggedin = 0;
 		foreach ($dbh->query($sql) as $row){
 		
-		if ($email == $row['email'] && $password == $row['password'])
+		if ($email == $row['email'] && password_verify($password, $row['password']))
 		{
 			// Yes, valid credentials - set message and set session variable for logged in
 			$loggedin = 1;

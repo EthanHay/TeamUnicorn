@@ -31,11 +31,14 @@ print_r($_REQUEST); // a useful debugging function to see everything in an array
 echo "</pre>";
 // execute the appropriate query based on which submit button (insert, delete or update) was clicked
 
+$password = $_REQUEST['password'];
+$hash = password_hash($password, PASSWORD_BCRYPT);
+
 if ($_REQUEST['submit'] == "Become a member")
 {
 	$sql = "INSERT INTO members (firstname, surname, address, postcode, suburb, state, phoneday, phoneeve, email, password, status) VALUES 
 	('$_REQUEST[firstname]', '$_REQUEST[surname]', '$_REQUEST[address]', '$_REQUEST[postcode]', '$_REQUEST[suburb]', 
-	'$_REQUEST[state]','$_REQUEST[phoneday]','$_REQUEST[phoneeve]','$_REQUEST[email]','$_REQUEST[password]', 'free')";
+	'$_REQUEST[state]','$_REQUEST[phoneday]','$_REQUEST[phoneeve]','$_REQUEST[email]','$hash', 'free')";
 	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
 	if ($dbh->exec($sql))
 		header("Location: myprofile.php?signup=success");
