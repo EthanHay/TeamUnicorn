@@ -24,12 +24,12 @@ if (!isset($_SESSION['email']))
 	$password = $_POST['password'];
 
 	//check if we came from a form (with username) - this could be more robust (check for our specific login form)
-	if (isset($email) && isset($password))
+	if (isset($email) && isset($password)) //&& $_REQUEST['submit'] == 'Login'))
 	{ 
 	
 	
 		// now do the username/password check - this could be a proper database lookup
-		$sql = "SELECT id, firstname, surname, email, password, status FROM members";//WHERE email == '$email' AND password == '$password'"; 
+		$sql = "SELECT id, firstname, surname, email, password, status FROM members"; 
 	    $loggedin = 0;
 		foreach ($dbh->query($sql) as $row){
 		
@@ -56,7 +56,7 @@ if (!isset($_SESSION['email']))
 				
 				$_SESSION['msg'] = "Invalid username and/or password!";
 				// redirect them to the login page, protecting our secure page
-				header("Location: events.php");
+				header("Location: home.php");
 				exit();
 	
 			}
