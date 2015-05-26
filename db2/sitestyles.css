@@ -1,133 +1,466 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Home</title>
-<link href="sitestyles.css" rel="stylesheet">
-<link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
-</head>
-    
-<body>
-<header class="site-header group">
+@charset "UTF-8";
+/* CSS Document */
 
-<!--- NAV BAR ---> 
-<div id="navigation-outer">    
-    <nav id="navigation-bar">   
-        <a href="Home.html"><img src="images/TCMC_Images/Site/TCMC150100.jpg"></a>
-        <ul id="site-navigation">
-           <li> 
-                <a href="Home.html">Home</a>    
-            </li> 
-            <li> 
-                <a href="Forum.html">Bulletin</a>    
-            </li> 
-            <li> 
-                <a href="Events.html">Events</a>    
-            </li>
-            <li> 
-                <a href="Artists.html">Artists</a>    
-            </li>
-            <li> 
-                <a href="About.html">About</a>    
-            </li>
-            <li> 
-                <a href="Join.html">Join Us</a>    
-            </li>
-            <li> 
-                <a href="Contact.html">Contact</a>    
-            </li> 
-            <li> 
-                <a href="Members.html">Members</a>    
-            </li>  
-            <li> 
-                <a href="Login.html" class="1">Login</a>    
-            </li>  
-        </ul>
-    </nav>
-</div>
+/* ------ HEADER ------ */
+
+.site-header {
+	 height: 7.5em;
+	 /*box-shadow: 10px 10px 5px #44146F inset;*/
+}
+
+.site {
+	margin: 60px;  
+	padding: 1em;
+	Min-height: 650px;
+}
+.logo img{
+	width: 100px;
+}
+.tagline
+{
+    color: #FFF;
+    height: 2.5em;
+}
+/* ------ ADD-FORMS ------ */
+
+fieldset.subtleSet {
+	border: none;
+}
+
+.subtleSet h2 {
+	color: #FFF;
+}
+label.label {
+	display:inline-block;
+	float: left;
+	width: 10em;
+	color: #FFF;
+	margin-left: 1em;
+}
+
+span.req {
+	color:red;
+}
+
+p.smalltext {
+	font-size: 0.8em;
+}
+
+/* ------ NAVIGATION BAR ------ */
+
+#navigation-bar {
+	align-content:	center;	
+}
+#site-navigation {
+	Width:auto;
+	Margin:auto;
+	Margin-top: 15px;
+}
+#site-navigation li
+{    
+   height: 1em;
+ 	display: inline-block;
+	font-size: 18px;
+	font-family: 'Roboto', sans-serif;
+	margin-bottom: 25px;
+}
+
+#site-navigation a
+{    
+    display: block;
+    text-decoration: none;
+    color: #000;
+    padding: .2em .8em;
+    margin: .8em .1;
+	
+}
     
-</header>
-<div class="site_outside">
-    <div class="site group"> 
-        
-        <div id="slideshow">
-			  <img src="images/TCMC_Images/Site/CIVIC%20C2%20LOGO.jpg" alt="Slideshow1">
-        </div>
-        
-        
-        <div id="thumbnails">
-            <div id="thumbnail-one">
-                <img src="images/TCMC_Images/musos/Harbourside_small.jpg" alt="bandName" class="image">
-                    <div class="img-footer">
-                        <h3>Title</h3>
-                        <p>Brief description</p>
-                    </div>        
-            </div>
-            <div id="thumbnail-two">
-                <img src="images/TCMC_Images/musos/Poms_small2.jpg" alt="Organ" class="image">
-                    <div class="img-footer">
-                   		<h3>Title</h3>
-                        <p>Brief description</p>
-                    </div>        
-            </div>
-            <div id="thumbnail-three">
-                <img src="images/TCMC_Images/bulletin/TCBlogo201.jpg" alt="bandName" class="image">
-                    <div class="img-footer">
-                    	<h3>Title</h3>	
-                        <p>Brief description</p>
-                    </div>        
-            </div>
-        
-        </div>
-        
-        
-    </div>   
-</div>    
-  <!--- FOOTER --->     
-<div class="footer-outer group">
-    <footer class="site-footer">
-        <div class="footer-nav">
-            <ul id="footer-navigation">
-                <li> 
-                <a href="Home.html">Home</a>    
-            </li> 
-            <li> 
-                <a href="Forum.html">Bulletin</a>    
-            </li> 
-            <li> 
-                <a href="Events.html">Events</a>    
-            </li>
-            <li> 
-                <a href="Artists.html">Artists</a>    
-            </li>
-            <li> 
-                <a href="About.html">About</a>    
-            </li>
-            <li> 
-                <a href="Join.html">Join Us</a>    
-            </li>
-            <li> 
-                <a href="Contact.html">Contact</a>    
-            </li> 
-            <li> 
-                <a href="Members.html">Members</a>    
-            </li>  
-            <li> 
-                <a href="Login.html" class="1">Login</a>    
-            </li>   
-            </ul>        
-        </div>
-        
-        <div class="footer-contact">
-            <p>Contact Info:</p>
-            <p> Phone:07 4724 2086 Mobile: 04 0225 5182</p> <p>Address: Townsville Civic Theatre, 41 Boundary Street, Townsville, Qld 4810</p> <a href="mailto:admin@townsvillemusic.org.au"                   target="_top">admin@townsvillemusic.org.au</a>
-        </div>
-        
-        <div class="Logo">
-          <img src="images/TCMC_Images/Site/TCC83100.png" alt="Townsville City Logo">
-          <img src="images/TCMC_Images/Site/Qldlogo150169.jpg" alt="Queensland Logo">
-        
-        </div>
-</footer>     
-</body>
-</html>
+#site-navigation a:hover
+{
+ 	opacity: .7;
+	background-color: #CCCCCC
+}
+
+#navigation-outer img {
+    float: left;
+}
+
+#navigation-outer
+{
+    min-width: 760px;
+	width: 60%;
+	Height: 6.5em;
+    background-color: #FFF;
+	margin-right:auto;
+	margin-left:auto;	
+}
+#navigation-outer .login{
+	Float:right;
+}
+/*
+#navigation-outer .right{
+	Float:right;
+	Width:40%;	
+}
+#navigation-outer .left{
+	Width:60%;
+	position:absolute;
+	float: left;
+}
+*/
+
+/* ------ Main ------ */
+
+
+
+
+/*.thumbnails {
+Width: 100%
+    
+}*/
+#slideshow img{
+	width:100%;
+	height: 400px;
+	margin-top:5px;
+}
+#thumbnails {
+	Padding-top: 15px;
+}
+#thumbnails h3 {
+	padding-left:20px
+}
+#thumbnails p {
+	padding-left:20px
+}
+#thumbnails a {
+	Text-decoration: none;
+}
+#thumbnail-one {
+	float: left;
+	min-width: 240px;
+	max-width: 30%;
+	Margin-right: 4.9%;
+	background-color: #3D1264
+} 
+#thumbnail-one .image {
+	Width: 100%;
+	Height:auto;
+}
+
+#thumbnail-two {
+	float:left;
+	min-width: 240px;
+	max-width: 30%;
+	Margin-right: 4.9%;
+	background-color: #3D1264
+}
+#thumbnail-two .image {
+	width:100%;
+	Height:auto;
+}
+
+#thumbnail-three {
+	float: left;
+	min-width: 240px;
+	max-width: 30%;
+	background-color: #3D1264
+}
+#thumbnail-three .image {	
+	Width:100%;
+	Height:auto;
+}
+
+.img-footer{
+	
+}
+.img-footer h3 {
+	color: White;
+	font-weight:bold;
+	font-size:36px;
+	Margin-top: -1px;
+	Margin-bottom: -1px;
+	text-decoration: underline;
+	/*text-Align: center;*/
+
+}
+.img-footer p {
+	Color: White;
+	
+}
+
+.Artist-Camerata-info {
+    float: left; 
+    width: 20em;
+}
+
+.Artist-Camerata-info h2 {
+    text-align: center;
+}
+
+.Artist-Camerata-info strong{
+    text-align: center;
+}
+
+
+/* ------ SHOWS ------ */
+
+.Artist-Segments a{
+ 	color: #FFF;   
+    
+}
+
+
+.Artist-Camerata-shows {
+    float: right;
+}
+
+.Camerata-shows {
+    background-color: bisque;
+    width: 37.5em;
+    border-style: solid;
+    border-width: thin;
+    
+}
+
+.Camerata-shows p{
+   	text-align: center;
+}
+
+
+/* ------ FOOTER ------ */
+
+
+
+.footer-outer {
+	background-color: #FFF;
+    bottom: auto;
+}
+
+.site-footer {
+	height: auto;
+    color: #000;
+	min-width: 760px;
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.site-footer img {
+	Width:100px;
+	Float:right;
+	Margin-top:30px;
+	Margin-right: 70px;
+}	
+.footer-nav {
+	width: 15%;
+	Float:left;
+	padding: 0;
+	
+}
+.footer-nav ul {
+	list-style-type: none;
+	padding: 0;
+}
+.footer-nav a {
+	Text-decoration:none;
+	color: #000000;
+	font-family: 'Roboto', sans-serif;
+	
+}
+.footer-nav a:hover {
+	opacity: .7;
+	background-color: #CCCCCC
+}
+.footer-contact {
+ 	float: left;
+    margin-top: 1em;
+	Width: 50%;
+	font-family: 'Roboto', sans-serif;
+}
+
+footer div.logo {
+	float:left;
+	width: 35%;
+	padding:0;
+}
+
+footer div.logo img {
+	margin: 1em 0.5em 1em 0.5em;
+}
+
+/* ------ GENERAL ------ */
+
+body {
+	font-family: 'Roboto', sans-serif;
+}
+.group:before, .group:after
+{
+	content: " ";
+	display: table;
+    
+}
+
+.group:after
+{
+  	clear: both;
+}
+
+.site_outside {
+	background-color: #44146f;    
+}
+
+.site
+{
+/*width: 60em;*/
+	min-width: 800px;
+	Width: 60%;
+	margin: auto;
+	background-color: #551A8B;
+ 	color: #FFF;
+}
+
+.site a {
+	color: #FFF;
+}
+.site a:hover {
+	opacity:0.7;
+}
+.site p{
+	line-height: 150%;
+}
+
+
+/* PHP css */
+.leftside {
+	Float:left;
+	Width: 45%;
+	Padding-left: 15px;
+	Margin-top: 15px;
+}
+.leftside h1{
+	font-size:36px;
+	margin-top:0;
+	
+}
+.leftside p{
+	font-size: 16px;
+}
+.rightside {
+	float:right;
+	width:45%;
+	padding-right:15px;
+	Margin-top: 15px;
+}
+.rightside img{
+	max-width: 600px;
+	min-width: 300px;
+	
+}
+.top {
+	Width:100%;
+	float:left;
+	color:#FFFFFF;
+}
+.bottom {
+	width:100%;
+	Float:left;
+	color:#FFFFFF;
+	Padding-left: 15px;
+}
+.bottom a {
+	color: #FFFFFF;
+	text-decoration:underline;
+}
+.bottom a:hover {
+	opacity: 0.7;
+	text-decoration:none;
+}
+.Pageheading {
+	font-size:16px;
+	margin-top:-1;
+	color:white;
+	margin-left:15px;
+	
+}
+.currentartists{
+	min-width: 400px;
+	max-Width: 48%;
+	Height: 200px;
+	padding-left:15px;
+	float:left;
+}
+.currentartists p{
+	margin-left: 10px;
+	line-height: 150%;
+}
+
+.currentartists a{
+	color:white;
+	text-decoration: none;
+}
+.currentartists a:hover{
+	Text-decoration:underline;
+	
+}
+.leftpic img{
+	width:50%;
+	/*Height:50%;*/
+	float:left;
+}
+.rightinfo {
+	width:50%;
+	float:right;
+	
+}
+	
+/* ------ CURRENT ARTISTS ------ */
+
+div.artistbox, div.bulletinbox, div.eventbox {
+	display: inline-block;
+	width: 80%;
+	margin:1em;
+	color: #fff;
+}
+img.artistimg, img.bulletinimg, img.eventimg{
+	float: left;
+	margin-right: 3em;
+}
+
+div.basicinfo, div.description {
+	display: inline-block;
+	float: left;
+	color: #FFF;
+}
+
+div.basicinfo a {
+	color: #FFF;
+}
+
+div.basicinfo a:hover {
+	opacity:0.7;
+}
+	
+/* ------ BULLETIN BOARD ------ */
+
+div.bulletinbox, div.eventbox{
+	width: 100%;
+}
+
+img.bulletinimg, img.eventimg{
+	float: left;
+	 max-height: 285px;
+}
+
+div.description, div.eventdetails{
+	float: left;
+	width: 50%;
+}
+div.eventtitle {
+	text-decoration:none;
+}
+p.submitted {
+	color:#07D71F;
+}
+
+p.notsubmitted {
+	color:#F8787A;
+}
