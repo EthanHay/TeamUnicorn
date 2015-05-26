@@ -4,6 +4,12 @@
    (redirect with the header method) instead of printing the results here. 
    The X option demonstrates this ("silent" delete).
 */
+session_start(); // this should be the very first statement when using sessions
+// Report all PHP errors 
+error_reporting(E_ALL);
+/*	This file is a login page that will send the user to a secure page.
+	There's a session 'msg' variable, which will be blank the first time (when not set).
+*/
 include("dbconnect.php");
 
 $debugOn = true;
@@ -32,12 +38,45 @@ if ($_REQUEST['submit'] == "Insert Entry")
 	('$_REQUEST[title]', '$_REQUEST[description]', '$newFullName', '$_REQUEST[type]', '$_REQUEST[contact1]',
 	 '$_REQUEST[contact2]', '$expirydate')";
 	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
-	if ($dbh->exec($sql))
+	
+	if ($dbh->exec($sql)){
+		$query = "SELECT id, title FROM bulletin"; //Retrieve the newly generated id from the database
+		foreach ($dbh->query($query) as $row);{
+		if($row['title'] == $_REQUEST['title']) {
+			$bulid = $row['id'];
+			echo "$bulid";
+		}
+		}
+		
+		$sqlmem = "INSERT INTO mem_bul (memid, bulid) VALUES ('$_SESSION[id]', $bulid)"; //table connecting which member added
+		//which notice, for use on "my profile" page
+		$dbh->exec($sqlmem);
+	
 		header("Location: bulletin.php?result=submitted");
+	}
 	else
 		header("Location: addnotice.php?result=notsubmitted");// in case it didn't work - e.g. if database is not writeable
 }
-
+else if ($_REQUEST['submit'] == "Delete Notice")
+{
+	$sql = "DELETE FROM bulletin WHERE id = '$_REQUEST[id]'";
+	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
+	if ($dbh->exec($sql))
+		echo "Deleted $_REQUEST[name]";
+	else
+		echo "Not deleted";
+}
+else if ($_REQUEST['submit'] == "Update Notice")
+{
+	$sql = "UPDATE bulletin SET title = '$_REQUEST[title]', description = '$_REQUEST[description]', 
+	image= '$_REQUEST[image]', type = '$_REQUEST[type]', contact1 = '$_REQUEST[contact1]', 
+	contact2 = '$_REQUEST[contact2]', expirydate = '$_REQUEST[expirydate]' WHERE id = '$_REQUEST[id]'";
+	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
+	if ($dbh->exec($sql))
+		echo "Updated $_REQUEST[name]";
+	else
+		echo "Not updated";
+}
 else {
 	echo "This page did not come from a valid form submission.<br />\n";
 }

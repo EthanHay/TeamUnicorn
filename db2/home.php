@@ -11,6 +11,7 @@ error_reporting(E_ALL);
 <meta charset="UTF-8">
 <title>Towsville Community Music Centre</title>
 <link href="sitestyles.css" rel="stylesheet">
+<link rel="shortcut icon" href="images/icon.png">
 </head>
     
 <body>

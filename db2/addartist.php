@@ -1,5 +1,14 @@
 <?php
-include("dbconnect.php")
+session_start(); // this should be the very first statement when using sessions
+// Report all PHP errors 
+error_reporting(E_ALL);
+/*	This file is a login page that will send the user to a secure page.
+	There's a session 'msg' variable, which will be blank the first time (when not set).
+*/
+
+include("authenticate.php");
+include("dbconnect.php");
+
 ?>
 <!doctype html>
 <html>
@@ -10,9 +19,20 @@ include("dbconnect.php")
 </head>
 
 <body>
+<?php
+include("header.php");
+?>
 <h1>Artist Database</h1>
 
 <!--------------------------- NEW ARTIST  ------------------------------>
+<?php 
+if ($_SESSION['status'] == 'free')
+	echo "You do not yet have permission to add artists. You need to be a paying member. If you believe you have 
+	paid, please <a href='contact.php'>contact</a> TCMC";
+
+else {
+?>
+
 
 <form id="insert" name="insert" method="post" action="dbprocessartists.php" enctype="multipart/form-data">
 <fieldset class="subtleSet">
@@ -59,6 +79,13 @@ include("dbconnect.php")
     </p>
 </fieldset>
 </form>
+<?php
+}
+
+if ($_SESSION['status'] == 'admin') {
+
+?>
+
 
 <!--------------------------- FEATURED ARTIST  ------------------------------>
 <fieldset class="subtleSet">
@@ -177,6 +204,7 @@ foreach ($dbh->query($sql) as $row)
 }
 echo "</fieldset>\n";
 // close the database connection
+}
 $dbh = null;
 ?>
 </body>

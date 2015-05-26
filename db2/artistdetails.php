@@ -27,7 +27,7 @@ include("header.php");
 	<?php
     // display selected artist.
     $artist_id = $_GET['id'];
-    $sql = "SELECT name, image, about, genre, facebook, email, phone FROM artists WHERE id=$artist_id";
+    $sql = "SELECT name, image, about, facebook, email, phone FROM artists WHERE id=$artist_id";
     foreach ($dbh->query($sql) as $row)
     {
     echo "<div class='top'><div class='leftside'><h1>$row[name]</h1>";
@@ -36,7 +36,7 @@ include("header.php");
     echo "<div class='rightside'><img src=/~tcmc21/db2/$row[image] width=100% height=100%><br>";
     echo "Genre: $row[genre]</p></div></div>";
     
-    echo "<div class='bottom'><P>Website link: <a href='$row[facebook]'>$row[name] - $row[genre]</a></p>";
+    echo "<div class='bottom'><P>Website link: <a href='$row[facebook]'>$row[name]</a></p>";
     echo "<P>Email: $row[email]</p>";
     echo "<p>Phone: $row[phone]</p></div>";
     }

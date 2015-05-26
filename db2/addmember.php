@@ -1,5 +1,6 @@
 <?php
-include("dbconnect.php")
+include("authenticate.php");
+include("dbconnect.php");
 ?>
 <!doctype html>
 <html>
@@ -12,6 +13,11 @@ include("dbconnect.php")
 <body>
 <h1>Member Database</h1>
 <?php
+if ($_SESSION['status'] == 'free' OR $_SESSION['status'] == 'paid' )
+	echo "You do not yet have permission to add artists. You need to be an admin. If you believe you should
+	be an admin, please <a href='contact.php'>contact</a> TCMC";
+
+else {
 if($_GET['result']=='submitted'){
 	echo 'the member was submitted';
 }
@@ -128,6 +134,7 @@ foreach ($dbh->query($sql) as $row)
 }
 echo "</fieldset>\n";
 // close the database connection
+}
 $dbh = null;
 ?>
 </body>

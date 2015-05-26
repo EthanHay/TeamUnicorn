@@ -4,6 +4,13 @@
    (redirect with the header method) instead of printing the results here. 
    The X option demonstrates this ("silent" delete).
 */
+session_start(); // this should be the very first statement when using sessions
+// Report all PHP errors 
+error_reporting(E_ALL);
+/*	This file is a login page that will send the user to a secure page.
+	There's a session 'msg' variable, which will be blank the first time (when not set).
+*/
+
 include("dbconnect.php");
 
 $debugOn = true;
@@ -40,12 +47,13 @@ else if ($_REQUEST['submit'] == "Update info")
 	$sql = "UPDATE members SET firstname = '$_REQUEST[firstname]', surname = '$_REQUEST[surname]', 
 	address= '$_REQUEST[address]', postcode = '$_REQUEST[postcode]', suburb = '$_REQUEST[suburb]',
 	 state = '$_REQUEST[state]', phoneday = '$_REQUEST[phoneday]', phoneeve = '$_REQUEST[phoneeve]', 
-	 email = '$_REQUEST[email]', password = '$_REQUEST[password]', ";
+	 email = '$_REQUEST[email]' WHERE id = '$_SESSION[id]' ";
 	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
-	if ($dbh->exec($sql))
+	if($dbh->exec($sql))
 		header("Location: myprofile.php?status=updated");
 	else
 		header("Location: myprofile.php?status=notupdated");
+		
 }
 
 else {

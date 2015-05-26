@@ -3,6 +3,7 @@
 	$email = $_SESSION['email']; // store so we can use it one more time for goodbye message
 	unset($_SESSION['email']);
 	unset($_SESSION['msg']);
+	unset($_SESSION['status']);
 	session_destroy();
 	header("Location: home.php");
 	exit();

@@ -66,7 +66,7 @@ if ((($_FILES["imagefile"]["type"] == "image/gif")
             echo "<img src=\"$newFullName\" " . $size[3] . " /><br />\n";
 			
 			// NOW, create a separate thumbnail from original image, if selected in form
-            if (isset($_REQUEST['thumbnailChoice']))
+            /*if (isset($_REQUEST['thumbnailChoice']))
             {
                 // demo of the {} syntax as well...
                 $image = WideImage::load($newFullName);
@@ -78,7 +78,7 @@ if ((($_FILES["imagefile"]["type"] == "image/gif")
                 echo "Stored thumnail as: $thumbFullName<br />\n";
                 $size = getimagesize($thumbFullName);
                 echo "<img src=\"$thumbFullName\" " . $size[3] . " /><br />\n";
-            }
+            }*/
 		}
 	}
 }

@@ -4,6 +4,13 @@
    (redirect with the header method) instead of printing the results here. 
    The X option demonstrates this ("silent" delete).
 */
+session_start(); // this should be the very first statement when using sessions
+// Report all PHP errors 
+error_reporting(E_ALL);
+/*	This file is a login page that will send the user to a secure page.
+	There's a session 'msg' variable, which will be blank the first time (when not set).
+*/
+
 include("dbconnect.php");
 $debugOn = true;
 if ($_REQUEST['submit'] == "X")
@@ -39,17 +46,23 @@ if ($_REQUEST['submit'] == "Insert Entry")
 	'$newFullName','$thumbFullName')";
 	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
 	
-	if ($dbh->exec($sql))
+	if ($dbh->exec($sql)){
+		
 		echo "Inserted $_REQUEST[name]";
+	}
 	else
 		echo "Not inserted"; // in case it didn't work - e.g. if database is not writeable
 	
-	$query = "SELECT id, name FROM artists";
+	$query = "SELECT id, name FROM artists"; //Retrieve the newly generated id from the database
 	foreach ($dbh->query($query) as $row);{
 	if($row['name'] == $_REQUEST['name']) {
 		$artid = $row['id'];
 	}
 	}
+	
+	$sqlmem = "INSERT INTO mem_art (memid, artid) VALUES ('$_SESSION[id]', $artid)"; //table connecting which member added
+	//which artist, for use on "my profile" page
+	$dbh->exec($sqlmem);
 	
 	$categ = $_REQUEST['category'];
 	$N = count($categ);
@@ -146,7 +159,7 @@ else if ($_REQUEST['submit'] == "Update Entry")
 {
 	$sql = "UPDATE artists SET name = '$_REQUEST[name]', image = '$_REQUEST[image]', 
 	thumb= '$_REQUEST[thumb]', email = '$_REQUEST[email]', facebook = '$_REQUEST[facebook]', 
-	genre = '$_REQUEST[genre]', phone = '$_REQUEST[phone]', about = '$_REQUEST[about]' WHERE id = '$_REQUEST[id]'";
+	phone = '$_REQUEST[phone]', about = '$_REQUEST[about]' WHERE id = '$_REQUEST[id]'";
 	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
 	if ($dbh->exec($sql))
 		echo "Updated $_REQUEST[name]";
