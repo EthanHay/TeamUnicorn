@@ -13,13 +13,18 @@ include("dbconnect.php");
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Events</title>
+<title>TCMC - Add/edit Events</title>
+<link href="sitestyles.css" rel="stylesheet">
+<link rel="shortcut icon" href="images/icon.png">
 </head>
 
 <body>
 <?php
 include("header.php")
 ?>
+
+<div class="site_outside">
+    <div class="site group"> 
 <h1>Events Database</h1>
 
 <?php
@@ -129,10 +134,13 @@ foreach ($dbh->query($sql) as $row)
 </form>
 <?php
 
-echo "</fieldset>\n";
+echo "</fieldset>
+		</div>
+		</div>\n";
 // close the database connection
 }
 $dbh = null;
+include("footer.html");
 ?>
 </body>
 </html>

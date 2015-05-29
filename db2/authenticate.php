@@ -33,7 +33,8 @@ if (!isset($_SESSION['email']))
 	    $loggedin = 0;
 		foreach ($dbh->query($sql) as $row){
 		
-		if ($email == $row['email'] && $password == $row['password'])
+		if ($email == $row['email'] && 
+            crypt($password, $row['password']) == $row['password'])
 		{
 			// Yes, valid credentials - set message and set session variable for logged in
 			$loggedin = 1;
@@ -56,7 +57,7 @@ if (!isset($_SESSION['email']))
 				
 				$_SESSION['msg'] = "Invalid username and/or password!";
 				// redirect them to the login page, protecting our secure page
-				header("Location: home.php");
+				header("Location: index.php");
 				exit();
 	
 			}
@@ -65,7 +66,7 @@ if (!isset($_SESSION['email']))
 	else // they didn't come from a form - tell them to log in, redirecting to login page
 	{
 		$_SESSION['msg'] = "You must log in first";
-		header("Location: home.php");
+		header("Location: index.php");
 		exit();
 	}
 }

@@ -5,7 +5,7 @@
 	unset($_SESSION['msg']);
 	unset($_SESSION['status']);
 	session_destroy();
-	header("Location: home.php");
+	header("Location: index.php");
 	exit();
 ?>
 <!doctype html>

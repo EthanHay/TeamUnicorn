@@ -1,5 +1,5 @@
 <?php
-include("dbconnect.php")
+include("dbconnect.php");
 ?>
 <!doctype html>
 <html>
@@ -7,6 +7,7 @@ include("dbconnect.php")
 <meta charset="UTF-8">
 <title>TCMC - Bulletin</title>
 <link href="sitestyles.css" rel="stylesheet" type="text/css">
+<link rel="shortcut icon" href="images/icon.png">
 </head>
 
 <body>
@@ -21,9 +22,14 @@ if($_GET['result']=='submitted'){
 	echo '<p class="submitted">Your notice was submitted </p>';
 }
 ?>
-        <p>Here you can find stuff for sale, lessons or announcements about volunteer work and other stuff. If you want
-        to add your own notice, please follow <a href="addnotice.php">this link</a> and fill out the form. 
-        </p>
+        <p>Here you can find stuff for sale, lessons or announcements about volunteer work and other stuff. <br>
+     <?php
+	 if (isset($_SESSION['status'])){
+	 
+    	echo" <a href='addnotice.php'>Click here</a> to add your own notice.
+        </p> ";
+	 }
+		?>
         <?php
 // display current notices in the database.
 
@@ -40,9 +46,12 @@ foreach ($dbh->query($sql) as $row) {
 	if($dt == $date or $dt > $date)
 		{
 		echo "
-		<div class=\"bulletinbox\">
-		<img class=\"bulletinimg\" src=/~tcmc21/db2/$row[image] width=25% height=25%> 
-		<div class=\"description\">
+		<div class=\"bulletinbox\">";
+		
+		if ($row['image'] != "")
+		echo "<img class=\"bulletinimg\" src=/~tcmc21/$row[image] width=25% height=25%> ";
+		
+		echo "<div class=\"description\">
 			<h3>$row[title]</h3>
 			<p>$row[description]</p>
 			<p>
@@ -63,8 +72,12 @@ foreach ($dbh->query($sql) as $row){
 	if($dt == $date or $dt > $date)
 		{
 		echo "
-		<div class=\"bulletinbox\">
-		<img class=\"bulletinimg\" src=/~tcmc21/db2/$row[image] width=25% height=25%> 
+		<div class=\"bulletinbox\">";
+		
+		if ($row['image'] != "")
+		echo "<img class=\"bulletinimg\" src=/~tcmc21/$row[image] width=25% height=25%> ";
+		
+		echo "
 		<div class=\"description\">
 			<h3>$row[title]</h3>
 			<p>$row[description]</p>
@@ -87,8 +100,12 @@ foreach ($dbh->query($sql) as $row){
 	if($dt == $date or $dt > $date)
 		{
 		echo "
-		<div class=\"bulletinbox\">
-		<img class=\"bulletinimg\" src=/~tcmc21/db2/$row[image] width=25% height=25%> 
+		<div class=\"bulletinbox\">";
+		
+		if ($row['image'] != "")
+		echo "<img class=\"bulletinimg\" src=/~tcmc21/$row[image] width=25% height=25%> ";
+		
+		echo "
 		<div class=\"description\">
 			<h3>$row[title]</h3>
 			<p>$row[description]</p>

@@ -24,7 +24,8 @@ echo "</pre>\n";
 // check MIME type (GIF or JPEG) and maximum upload size - see phpinfo() for the server's restriction
 if ((($_FILES["imagefile"]["type"] == "image/gif")
 || ($_FILES["imagefile"]["type"] == "image/jpeg")
-|| ($_FILES["imagefile"]["type"] == "image/pjpeg"))
+|| ($_FILES["imagefile"]["type"] == "image/pjpeg")
+|| ($_FILES["imagefile"]["type"] == "image/png"))
 && ($_FILES["imagefile"]["size"] < 2000000))
 {
     // check for any error code in the data
@@ -56,7 +57,7 @@ if ((($_FILES["imagefile"]["type"] == "image/gif")
 			// move the temporary file to the destination directory (images) and give it its new name
 			move_uploaded_file($_FILES["imagefile"]["tmp_name"], $newFullName);
 			$image = WideImage::load($newFullName);
-			$resizeImage = $image->resize(500, 500);
+			$resizeImage = $image->resize(250, 250);
 			$resizeImage->saveToFile($newFullName);
 			// set the permission on the file
 			chmod($newFullName, 0644);
@@ -66,7 +67,7 @@ if ((($_FILES["imagefile"]["type"] == "image/gif")
             echo "<img src=\"$newFullName\" " . $size[3] . " /><br />\n";
 			
 			// NOW, create a separate thumbnail from original image, if selected in form
-            /*if (isset($_REQUEST['thumbnailChoice']))
+            if (isset($_REQUEST['thumbnailChoice']))
             {
                 // demo of the {} syntax as well...
                 $image = WideImage::load($newFullName);
@@ -78,7 +79,7 @@ if ((($_FILES["imagefile"]["type"] == "image/gif")
                 echo "Stored thumnail as: $thumbFullName<br />\n";
                 $size = getimagesize($thumbFullName);
                 echo "<img src=\"$thumbFullName\" " . $size[3] . " /><br />\n";
-            }*/
+            }
 		}
 	}
 }

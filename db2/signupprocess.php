@@ -25,20 +25,24 @@ $debugOn = true;
 <body>
 <h1>Results</h1>
 <?php
-echo "<h2>Form Data</h2>";
+/*echo "<h2>Form Data</h2>";
 echo "<pre>";
 print_r($_REQUEST); // a useful debugging function to see everything in an array, best inside a <pre> element
-echo "</pre>";
+echo "</pre>";*/
 // execute the appropriate query based on which submit button (insert, delete or update) was clicked
+include("better_crypt.php");
+
+$password = $_REQUEST['password'];
+$hash = better_crypt($password);
 
 if ($_REQUEST['submit'] == "Become a member")
 {
 	$sql = "INSERT INTO members (firstname, surname, address, postcode, suburb, state, phoneday, phoneeve, email, password, status) VALUES 
 	('$_REQUEST[firstname]', '$_REQUEST[surname]', '$_REQUEST[address]', '$_REQUEST[postcode]', '$_REQUEST[suburb]', 
-	'$_REQUEST[state]','$_REQUEST[phoneday]','$_REQUEST[phoneeve]','$_REQUEST[email]','$_REQUEST[password]', 'free')";
+	'$_REQUEST[state]','$_REQUEST[phoneday]','$_REQUEST[phoneeve]','$_REQUEST[email]','$hash', 'free')";
 	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
 	if ($dbh->exec($sql))
-		header("Location: myprofile.php?signup=success");
+		header("Location: signup.php?signup=success");
 	else
 		header("Location: signup.php?signup=incomplete"); // in case it didn't work - e.g. if database is not writeable
 }

@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>TCMC - Sign up</title>
 <link href="sitestyles.css" rel="stylesheet" type="text/css">
+<link rel="shortcut icon" href="images/icon.png">
 </head>
 
 <body>
@@ -13,8 +14,18 @@ include("header.php");
 <div class="site_outside">
 <div class="site">
 <h1>Join us!</h1>
-<p>To become a member of Townsville Community Music Centre, please fill out the form below. Free members can add notices to 
-our bulletin board for free, paying members can add artists for free as well. To become a paying member, follow the 
+<p>There are several ways to be an active member of Townsville Community Music Centre: </p>
+<h2>As an artist</h2> <p> If you have a band or group, or even a solo act, you can advertise 
+your events on our page, and let us organise your concerts, promotion, photo shoots and media releases.</p> 
+
+<h2>As a volunteer</h2> <p> Wee need people to help us out by volunteering, which includes working with administration, 
+organising events or promoting concerts and workshops.</p> 
+
+<h2>As a paying member</h2> <p>Being a paying member only costs $25 each year, and you get benefits like ticket discounts
+at the Townsville Civic Theatre, the possibility
+of posting notices to the bulletin board and promoting artists for free.<br> 
+To become a member of Townsville Community Music Centre, please fill out the form below. Free members can add notices to 
+our bulletin board for free. To become a paying member, follow the 
 link to PayPal and subscribe to a yearly fee of $25. An admin will upgrade your account as soon as possible. 
 
 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
@@ -24,6 +35,7 @@ link to PayPal and subscribe to a yearly fee of $25. An admin will upgrade your 
 <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
 </form>
 
+<div id="leftform">
 <form id="register" name="register" method="post" action="signupprocess.php">
 <fieldset class="subtleSet">
 	<h2>Sign up</h2>
@@ -89,6 +101,8 @@ elseif($_GET['signup']=='success') {
     </p>
     </fieldset>
 </form>
+</div>
+
 </div>
 </div>    
 <?php

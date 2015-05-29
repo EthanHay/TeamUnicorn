@@ -6,11 +6,18 @@ include("dbconnect.php");
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Artists</title>
-<link href="styles.css" rel="stylesheet" type="text/css">
+<title>TCMC Add/edit Members</title>
+<!--<link href="styles.css" rel="stylesheet" type="text/css">-->
+<link href="sitestyles.css" rel="stylesheet">
+<link rel="shortcut icon" href="images/icon.png">
 </head>
 
 <body>
+<?php
+include("header.php");
+?>
+<div class="site_outside">
+    <div class="site group"> 
 <h1>Member Database</h1>
 <?php
 if ($_SESSION['status'] == 'free' OR $_SESSION['status'] == 'paid' )
@@ -132,7 +139,10 @@ foreach ($dbh->query($sql) as $row)
 </form>
 <?php
 }
-echo "</fieldset>\n";
+echo "</fieldset>
+		</div>
+		</div>
+		\n";
 // close the database connection
 }
 $dbh = null;

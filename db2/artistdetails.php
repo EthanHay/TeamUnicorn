@@ -16,6 +16,7 @@ echo "$row[name]";
 ?>
 </title>
 <link href="sitestyles.css" rel="stylesheet">
+<link rel="shortcut icon" href="images/icon.png">
 </head>
 
 <body>
@@ -33,7 +34,7 @@ include("header.php");
     echo "<div class='top'><div class='leftside'><h1>$row[name]</h1>";
 	echo "<p>$row[about]</p><br></div>";
 	
-    echo "<div class='rightside'><img src=/~tcmc21/db2/$row[image] width=100% height=100%><br>";
+    echo "<div class='rightside'><img src=/~tcmc21/$row[image]><br>";
     echo "Genre: $row[genre]</p></div></div>";
     
     echo "<div class='bottom'><P>Website link: <a href='$row[facebook]'>$row[name]</a></p>";

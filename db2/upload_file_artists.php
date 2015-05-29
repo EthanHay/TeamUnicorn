@@ -24,7 +24,8 @@ echo "</pre>\n";
 // check MIME type (GIF or JPEG) and maximum upload size - see phpinfo() for the server's restriction
 if ((($_FILES["imagefile"]["type"] == "image/gif")
 || ($_FILES["imagefile"]["type"] == "image/jpeg")
-|| ($_FILES["imagefile"]["type"] == "image/pjpeg"))
+|| ($_FILES["imagefile"]["type"] == "image/pjpeg")
+|| ($_FILES["imagefile"]["type"] == "image/png"))
 && ($_FILES["imagefile"]["size"] < 2000000))
 {
     // check for any error code in the data
@@ -56,7 +57,7 @@ if ((($_FILES["imagefile"]["type"] == "image/gif")
 			// move the temporary file to the destination directory (images) and give it its new name
 			move_uploaded_file($_FILES["imagefile"]["tmp_name"], $newFullName);
 			$image = WideImage::load($newFullName);
-			$resizeImage = $image->resize(500, 500);
+			$resizeImage = $image->resize(400, 400);
 			$resizeImage->saveToFile($newFullName);
 			// set the permission on the file
 			chmod($newFullName, 0644);
@@ -72,8 +73,8 @@ if ((($_FILES["imagefile"]["type"] == "image/gif")
                 $image = WideImage::load($newFullName);
                 // resize maintains aspect ratio, so the new image will fit within the rectangle defined by the parameters
                 // you might like to use a constant for this size
-                $thumbnailImage = $image->resize(300, 300);
-                $thumbFullName = "images/artists/thumb/{$newName}";
+                $thumbnailImage = $image->resize(150, 150);
+                $thumbFullName = "images/artists/thumb/thumb{$newName}";
                 $thumbnailImage->saveToFile($thumbFullName);
                 echo "Stored thumnail as: $thumbFullName<br />\n";
                 $size = getimagesize($thumbFullName);

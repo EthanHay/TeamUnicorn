@@ -16,6 +16,7 @@ include("dbconnect.php");
 <meta charset="UTF-8">
 <title>TCMC - My Profile</title>
 <link href="sitestyles.css" rel="stylesheet" type="text/css">
+<link rel="shortcut icon" href="images/icon.png">
 </head>
 
 <body>
@@ -27,7 +28,7 @@ include("header.php");
 <?php
 
 echo '<h2>My details</h2>';
-echo '<pre>' . print_r($_SESSION) . '</pre>';
+//echo '<pre>' . print_r($_SESSION) . '</pre>';
 
 if($_GET['status']=='updated'){
 	echo 'your information was updated';
@@ -115,8 +116,8 @@ echo "<h2>My bulletin board notices</h2>";
 				echo "<input type='hidden' name='id' value='$row[id]' />";
 			
 				?>
-				  <input type="submit" name="submit" value="Update Notice">
-				  <input type="submit" name="submit" value="Delete Notice" class="deleteButton">
+				  <input type="submit" name="submit" value="Update My Notice">
+				  <input type="submit" name="submit" value="Delete My Notice" class="deleteButton">
 				  
 				</form>
            <?php  
@@ -147,8 +148,8 @@ if ($_SESSION['status'] == 'paid' OR 	$_SESSION['status'] == 'admin'){
 				echo "<input type='hidden' name='id' value='$row[id]' />";
 			
 				?>
-				  <input type="submit" name="submit" value="Update Entry">
-				  <input type="submit" name="submit" value="Delete Entry" class="deleteButton">
+				  <input type="submit" name="submit" value="Update My Artist">
+				  <input type="submit" name="submit" value="Delete My Artist" class="deleteButton">
 				  <input type="submit" name="submit" value="X" class="deleteButton">
 				</form>
            <?php  
@@ -159,6 +160,7 @@ if ($_SESSION['status'] == 'paid' OR 	$_SESSION['status'] == 'admin'){
 	}
 }
 	
+echo "<p>";	
 	if ($_SESSION['status'] == "paid" OR $_SESSION['status']=="admin")
 		echo'<a href="addartist.php">Add/edit Artists</a> <br>';
 		
@@ -167,8 +169,11 @@ if ($_SESSION['status'] == 'paid' OR 	$_SESSION['status'] == 'admin'){
 		echo'
 			<a href="addmember.php">Add/edit Members</a> <br>
 			<a href="addevent.php">Add/edit Events</a> <br>
+			<a href="editbulletin.php">Add/edit Bulletin</a> <br>
 			';
 	}
+	
+echo "</p>";	
 	
 ?>
 

@@ -26,6 +26,7 @@ error_reporting(E_ALL);
 			<input type='password' name='password' id='password'>
 			<br>
 			<input type='submit' name='Login' value='Login' id='submitBTN'>
+			</fieldset>
 			</form>";
 			
 			unset($_SESSION['msg']);
@@ -41,7 +42,7 @@ error_reporting(E_ALL);
 		?>
 	</div>
     <nav id="navigation-bar">   
-        <a href="home.php"><img src="images/TCMC_Images/Site/TCMC150100.jpg"></a>
+        <a href="index.php"><img src="images/TCMC_Images/Site/TCMC150100.jpg"></a>
         <ul id="site-navigation">
             <li> 
                 <a href="bulletin.php">Bulletin</a>    
@@ -56,7 +57,7 @@ error_reporting(E_ALL);
                 <a href="about.php">About</a>    
             </li>
             <li> 
-                <a href="signup.php">Join Us</a>    
+                <a href="signup.php"><b>Join Us</b></a>    
             </li>
             <li> 
                 <a href="contact.php">Contact</a>    

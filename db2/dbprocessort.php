@@ -16,8 +16,12 @@ include("dbconnect.php");
 <body>
 <?php
 
-if ($_REQUEST['submit'] == "Sort"){
-	header("Location: currentartists.php?sort=$_REQUEST[sortby]");	
+if ($_REQUEST['submit'] == "Filter"){
+	header("Location: currentartists.php?filter=$_REQUEST[filterby]");	
+}
+
+elseif ($_REQUEST['submit'] == "Remove Filter"){
+	header("Location: currentartists.php");	
 }
 else
 echo "something is wrong";

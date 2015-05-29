@@ -31,6 +31,7 @@ if ($_REQUEST['submit'] == "X")
 </head>
 
 <body>
+<p><a href="addartist.php">Return to database test page</a></p>
 <h1>Results</h1>
 <?php
 echo "<h2>Form Data</h2>";
@@ -48,10 +49,10 @@ if ($_REQUEST['submit'] == "Insert Entry")
 	
 	if ($dbh->exec($sql)){
 		
-		echo "Inserted $_REQUEST[name]";
+		header("Location: addartist.php?artist=inserted");
 	}
 	else
-		echo "Not inserted"; // in case it didn't work - e.g. if database is not writeable
+		header("Location: addartist.php?artist=notinserted"); // in case it didn't work - e.g. if database is not writeable
 	
 	$query = "SELECT id, name FROM artists"; //Retrieve the newly generated id from the database
 	foreach ($dbh->query($query) as $row);{
@@ -60,8 +61,7 @@ if ($_REQUEST['submit'] == "Insert Entry")
 	}
 	}
 	
-	$sqlmem = "INSERT INTO mem_art (memid, artid) VALUES ('$_SESSION[id]', $artid)"; //table connecting which member added
-	//which artist, for use on "my profile" page
+	$sqlmem = "INSERT INTO mem_art (memid, artid) VALUES ('$_SESSION[id]', $artid)";
 	$dbh->exec($sqlmem);
 	
 	$categ = $_REQUEST['category'];
@@ -103,9 +103,9 @@ else if ($_REQUEST['submit'] == "Add category")
 {
 	$sql = "INSERT INTO categories (catname) VALUES ('$_REQUEST[newcat]')";
 	if ($dbh->exec($sql))
-		echo "Added $_REQUEST[name]";
+		header("Location: addartist.php?cat=added");
 	else
-		echo "Not added";
+		header("Location: addartist.php?cat=notadded");
 }
 
 else if ($_REQUEST['submit'] == "Update category")
@@ -113,9 +113,9 @@ else if ($_REQUEST['submit'] == "Update category")
 	
 	$sql = "UPDATE categories SET catname = '$_REQUEST[catname]' WHERE id = '$_REQUEST[id]'";
 	if ($dbh->exec($sql))
-		echo "Updated $_REQUEST[name]";
+		header("Location: addartist.php?cat=updated");
 	else
-		echo "Not updated, $_REQUEST[id]";
+		header("Location: addartist.php?cat=notupdated");
 }
 
 else if ($_REQUEST['submit'] == "Update artist categories"){
@@ -129,10 +129,10 @@ else if ($_REQUEST['submit'] == "Update artist categories"){
 			}
 		}
 		$sql = "INSERT INTO art_cat (artid, catid) VALUES ('$_REQUEST[artid]', '$catid[$i]')";
-		if ($dbh->exec($sql))
-		echo "Updated artist categories";
+	if ($dbh->exec($sql))
+		header("Location: addartist.php?artcat=updated");
 	else
-		echo "Not updated, artist categories";
+		header("Location: addartist.php?artcat=notupdated");
 	
 	}
 	
@@ -142,18 +142,18 @@ else if ($_REQUEST['submit'] == "Delete category")
 {
 	$sql = "DELETE FROM categories WHERE id = '$_REQUEST[id]'";
 	if ($dbh->exec($sql))
-		echo "Deleted $_REQUEST[name]";
+		header("Location: addartist.php?cat=deleted");
 	else
-		echo "Not deleted";
+		header("Location: addartist.php?cat=notdeleted");
 }
 else if ($_REQUEST['submit'] == "Delete Entry")
 {
 	$sql = "DELETE FROM artists WHERE id = '$_REQUEST[id]'";
 	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
 	if ($dbh->exec($sql))
-		echo "Deleted $_REQUEST[name]";
+		header("Location: addartist.php?artist=deleted");
 	else
-		echo "Not deleted";
+		header("Location: addartist.php?artist=notdeleted");
 }
 else if ($_REQUEST['submit'] == "Update Entry")
 {
@@ -162,9 +162,29 @@ else if ($_REQUEST['submit'] == "Update Entry")
 	phone = '$_REQUEST[phone]', about = '$_REQUEST[about]' WHERE id = '$_REQUEST[id]'";
 	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
 	if ($dbh->exec($sql))
-		echo "Updated $_REQUEST[name]";
+		header("Location: addartist.php?artist=updated");
 	else
-		echo "Not updated";
+		header("Location: addartist.php?artist=notupdated");
+}
+else if ($_REQUEST['submit'] == "Delete My Artist")
+{
+	$sql = "DELETE FROM artists WHERE id = '$_REQUEST[id]'";
+	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
+	if ($dbh->exec($sql))
+		header("Location: myprofile.php?artist=deleted");
+	else
+		header("Location: addartist.php?artist=notdeleted");
+}
+else if ($_REQUEST['submit'] == "Update My Artist")
+{
+	$sql = "UPDATE artists SET name = '$_REQUEST[name]', image = '$_REQUEST[image]', 
+	thumb= '$_REQUEST[thumb]', email = '$_REQUEST[email]', facebook = '$_REQUEST[facebook]', 
+	phone = '$_REQUEST[phone]', about = '$_REQUEST[about]' WHERE id = '$_REQUEST[id]'";
+	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
+	if ($dbh->exec($sql))
+		header("Location: myprofile.php?artist=updated");
+	else
+		header("Location: addartist.php?artist=notupdated");
 }
 else {
 	echo "This page did not come from a valid form submission.<br />\n";

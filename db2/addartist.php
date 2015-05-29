@@ -14,14 +14,18 @@ include("dbconnect.php");
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Artists</title>
-<link href="styles.css" rel="stylesheet" type="text/css">
+<title>TCMC - Add/edit Artists</title>
+<!--<link href="styles.css" rel="stylesheet" type="text/css">-->
+<link href="sitestyles.css" rel="stylesheet">
+<link rel="shortcut icon" href="images/icon.png">
 </head>
 
 <body>
 <?php
 include("header.php");
 ?>
+<div class="site_outside">
+    <div class="site group"> 
 <h1>Artist Database</h1>
 
 <!--------------------------- NEW ARTIST  ------------------------------>
@@ -202,7 +206,10 @@ foreach ($dbh->query($sql) as $row)
 </form>
 <?php
 }
-echo "</fieldset>\n";
+echo "</fieldset>
+
+		</div>
+		</div>\n";
 // close the database connection
 }
 $dbh = null;

@@ -5,33 +5,32 @@ error_reporting(E_ALL);
 /*	This file is a login page that will send the user to a secure page.
 	There's a session 'msg' variable, which will be blank the first time (when not set).
 */
-include("authenticate.php");
+include("authenticate");
 include("dbconnect.php");
 ?>
 <!doctype html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Bulletin</title>
-<link href="sitestyles.css" rel="stylesheet" type="text/css">
+<title>TCMC - Edit Bulletin</title>
+<link href="sitestyles.css" rel="stylesheet">
 <link rel="shortcut icon" href="images/icon.png">
-
 </head>
 
 <body>
-
-<?php 
-include("header.php");
-?>
-
-<div class="site_outside">
-<div class="site">
-<h1>Bulletin Database</h1>
 <?php
-if($_GET['result']=='notsubmitted'){
-	echo '<p class="notsubmitted">Your notice was not submitted </p>';
-}
-?>
+include("header.php");
+
+echo "
+	<div class='site_outside'>
+    <div class='site group'> 
+	<h1>Add/edit Bulletin Board</h1>";
+
+if ($_SESSION['status'] != 'admin')
+echo "Sorry, you do not have the right access level for this page. If you believe you should, please contact TCMC";
+
+else { ?>
+	
 <form id="insert" name="insert" method="post" action="dbprocessbulletin.php" enctype="multipart/form-data">
 <fieldset class="subtleSet">
     <h2>Insert New Notice:</h2>
@@ -77,19 +76,45 @@ if($_GET['result']=='notsubmitted'){
     <select name="exyear" id="exyear"><option>2015</option><option>2016</option><option>2017</option>
     </select>
     </p>
-    <!--<p>
-      <label class="label"  for="expirydate">Expiration date (yyyy-mm-dd): </label>
-      <input type="text" name="expirydate" id="expirydate">
-    </p>-->
     <p>
-      <input type="submit" name="submit" id="submit" value="Insert Entry">
+      <input type="submit" name="submit" id="submit" value="Insert New Entry">
     </p>
 </fieldset>
-</form>
+</form>	
+<?php
+
+echo"<form id='deleteForm' name='deleteForm' method='post' action='dbprocessbulletin.php'>";
+		
+		$sqlart = "SELECT * FROM bulletin"; 
+		foreach ($dbh->query($sqlart) as $row) {	
+	 		
+				echo"<input type='text' name='title' value='$row[title]' /> 
+				<input type='text' name='description' value='$row[description]' />
+				<input type='text' name='image' value='$row[image]' /> 
+				<input type='text' name='type' value='$row[type]' /> 
+				<input type='text' name='contact1' value='$row[contact1]' /> 
+				<input type='text' name='contact2' value='$row[contact2]' />
+				<input type='text' name='expirydate' value='$row[expirydate]' />\n";
+				echo "<input type='hidden' name='id' value='$row[id]' />";
+			
+				?>
+				  <input type="submit" name="submit" value="Update Notice">
+				  <input type="submit" name="submit" value="Delete Notice" class="deleteButton">
+                  <br>
+				<?php  
+			
+		}
+				echo"</form>";
+
+
+}
+
+?>
 </div>
 </div>
-<?php 
-include("footer.html");
+
+<?php
+include("footer.php");
 ?>
 </body>
 </html>

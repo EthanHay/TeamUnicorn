@@ -57,14 +57,61 @@ if ($_REQUEST['submit'] == "Insert Entry")
 	else
 		header("Location: addnotice.php?result=notsubmitted");// in case it didn't work - e.g. if database is not writeable
 }
+if ($_REQUEST['submit'] == "Insert New Entry")
+{
+	$expirydate = "$_REQUEST[exyear]-$_REQUEST[exmonth]-$_REQUEST[exday]";	
+	include("upload_file_bulletin.php");
+	$sql = "INSERT INTO bulletin (title, description, image, type, contact1, contact2, expirydate) VALUES 
+	('$_REQUEST[title]', '$_REQUEST[description]', '$newFullName', '$_REQUEST[type]', '$_REQUEST[contact1]',
+	 '$_REQUEST[contact2]', '$expirydate')";
+	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
+	
+	if ($dbh->exec($sql)){
+		$query = "SELECT id, title FROM bulletin"; //Retrieve the newly generated id from the database
+		foreach ($dbh->query($query) as $row);{
+		if($row['title'] == $_REQUEST['title']) {
+			$bulid = $row['id'];
+			echo "$bulid";
+		}
+		}
+		
+		$sqlmem = "INSERT INTO mem_bul (memid, bulid) VALUES ('$_SESSION[id]', $bulid)"; //table connecting which member added
+		//which notice, for use on "my profile" page
+		$dbh->exec($sqlmem);
+	
+		header("Location: editbulletin.php?result=submitted");
+	}
+	else
+		header("Location: editbulletin.php?result=notsubmitted");// in case it didn't work - e.g. if database is not writeable
+}
+else if ($_REQUEST['submit'] == "Delete My Notice")
+{
+	$sql = "DELETE FROM bulletin WHERE id = '$_REQUEST[id]'";
+	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
+	if ($dbh->exec($sql))
+		header("Location: myprofile.php?notice=deleted");
+	else
+		header("Location: myprofile.php?notice=notdeleted");
+}
+else if ($_REQUEST['submit'] == "Update My Notice")
+{
+	$sql = "UPDATE bulletin SET title = '$_REQUEST[title]', description = '$_REQUEST[description]', 
+	image= '$_REQUEST[image]', type = '$_REQUEST[type]', contact1 = '$_REQUEST[contact1]', 
+	contact2 = '$_REQUEST[contact2]', expirydate = '$_REQUEST[expirydate]' WHERE id = '$_REQUEST[id]'";
+	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
+	if ($dbh->exec($sql))
+		header("Location: myprofile.php?notice=updated");
+	else
+		header("Location: myprofile.php?notice=notupdated");
+}
 else if ($_REQUEST['submit'] == "Delete Notice")
 {
 	$sql = "DELETE FROM bulletin WHERE id = '$_REQUEST[id]'";
 	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
 	if ($dbh->exec($sql))
-		echo "Deleted $_REQUEST[name]";
+		header("Location: editbulletin.php?notice=deleted");
 	else
-		echo "Not deleted";
+		header("Location: editbulletin.php?notice=notdeleted");
 }
 else if ($_REQUEST['submit'] == "Update Notice")
 {
@@ -73,9 +120,9 @@ else if ($_REQUEST['submit'] == "Update Notice")
 	contact2 = '$_REQUEST[contact2]', expirydate = '$_REQUEST[expirydate]' WHERE id = '$_REQUEST[id]'";
 	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
 	if ($dbh->exec($sql))
-		echo "Updated $_REQUEST[name]";
+		header("Location: editbulletin.php?notice=updated");
 	else
-		echo "Not updated";
+		header("Location: editbulletin.php?notice=notupdated");
 }
 else {
 	echo "This page did not come from a valid form submission.<br />\n";
