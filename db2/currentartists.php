@@ -24,6 +24,10 @@ include("header.php");
 <div class="site_outside">
 	<div class="site group">   
 <div class="Pageheading"><h1>Artists</h1></div>
+<?php if ($_SESSION['status'] == "paid" OR $_SESSION['status'] == "admin" )
+		echo'<p><a href="addartist.php">Add artist</a> <br></p>
+		';
+		?>
 <h2>Featured artist</h2>
 <?php
 $sqlf = "SELECT id, name, thumb, featured FROM artists";
@@ -34,7 +38,7 @@ foreach($dbh->query($sqlf) as $row){
 		echo "<div class='featuredartists'>
 			<a href=\"artistdetails.php?id=$row[id]\">
 			<div class='leftpic'><img src=/~tcmc21/$row[thumb]><br></div>";
-			echo "<div class='rightinfo'><p><a href=\"artistdetails.php?id=$row[id]\">$row[name]<br>Genre:";
+			echo "<div class='rightinfo'><p><a href=\"artistdetails.php?id=$row[id]\">$row[name]<br>Genre: ";
 		$sqlcat = "SELECT * FROM categories";
 			foreach ($dbh->query($sqlcat) as $cat)
 			{

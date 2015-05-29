@@ -161,12 +161,11 @@ if ($_SESSION['status'] == 'paid' OR 	$_SESSION['status'] == 'admin'){
 }
 	
 echo "<p>";	
-	if ($_SESSION['status'] == "paid" OR $_SESSION['status']=="admin")
-		echo'<a href="addartist.php">Add/edit Artists</a> <br>';
 		
 	if($_SESSION['status']=="admin")
 	{
-		echo'
+		echo'<h2>Page Administration</h2>
+			<a href="addartist.php">Add/edit Artists</a> <br>
 			<a href="addmember.php">Add/edit Members</a> <br>
 			<a href="addevent.php">Add/edit Events</a> <br>
 			<a href="editbulletin.php">Add/edit Bulletin</a> <br>

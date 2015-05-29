@@ -36,17 +36,16 @@ layout of the front page, welcome paragraph</li>
     <p>any details required to test the site, including usernames, passwords, instructions if needed, outstanding issues (like things that look as though they work but don't) </p>
     <p><strong>Admin username: </strong>admin@tcmc.com </p>
     <p><strong>Admin password: </strong>password </p>
-    <p><strong>Paying member username/password:</strong> paying@tcmc.com / password</p>
-    <p><strong>Free member username/password:</strong> free@tcmc.com / password</p>
+    <p><strong>Paying member username/password:</strong> paying@tcmc.com, password</p>
+    <p><strong>Free member username/password:</strong> free@tcmc.com, password</p>
     <h2>References</h2>
     <p><a href="http://pixabay.com/en/volunteers-hands-voluntary-wrap-601662/">Volunteering photo</a></p>
     <p>Paypal buttons were created through Paypal's button generator under Seller Preferences (you have to be logged in)</p>
-    <p><a href="http://www.the-art-of-web.com/php/blowfish-crypt/">better_crypt.php</a></p>
     <p>Example CP1406/CP2010 Code, Lindsay Ward</p>
 <h2>PMI</h2>
     <p>your group should spend some time reflecting on the process and describe here the Pluses, Minuses and Interesting aspects of your teamwork process and result</p>
     <p><strong>Pluses: </strong> ...</p>
-    <p><strong>Minuses: </strong>communication problems, especially since we never found a second day we could meet and work</p>
+    <p><strong>Minuses: </strong>communication problems, especially since we never found a second day we could meet and worker</p>
     <p><strong>Interesting: </strong> ...</p>
 </body>
 </html>

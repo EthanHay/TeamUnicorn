@@ -34,18 +34,7 @@ print_r($_REQUEST); // a useful debugging function to see everything in an array
 echo "</pre>";
 // execute the appropriate query based on which submit button (insert, delete or update) was clicked
 
-if ($_REQUEST['submit'] == "Submit new member")
-{
-	$sql = "INSERT INTO members (firstname, surname, address, postcode, suburb, state, phoneday, phoneeve, email, username, password, status) VALUES 
-	('$_REQUEST[firstname]', '$_REQUEST[surname]', '$_REQUEST[address]', '$_REQUEST[postcode]', '$_REQUEST[suburb]', 
-	'$_REQUEST[state]','$_REQUEST[phoneday]','$_REQUEST[phoneeve]','$_REQUEST[email]','$_REQUEST[username]','$_REQUEST[password]', '$_REQUEST[status]')";
-	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 
-	if ($dbh->exec($sql))
-		header("Location: addmember.php?result=submitted");
-	else
-		header("Location: addmember.php?result=notsubmitted"); // in case it didn't work - e.g. if database is not writeable
-}
-else if ($_REQUEST['submit'] == "Delete Entry")
+if ($_REQUEST['submit'] == "Delete Entry")
 {
 	$sql = "DELETE FROM members WHERE id = '$_REQUEST[id]'";
 	echo "<p>Query: " . $sql . "</p>\n<p><strong>"; 

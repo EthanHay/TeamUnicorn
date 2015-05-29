@@ -26,7 +26,7 @@ at the Townsville Civic Theatre, the possibility
 of posting notices to the bulletin board and promoting artists for free.<br> 
 To become a member of Townsville Community Music Centre, please fill out the form below. Free members can add notices to 
 our bulletin board for free. To become a paying member, follow the 
-link to PayPal and subscribe to a yearly fee of $25. An admin will upgrade your account as soon as possible. 
+link to PayPal and subscribe to a yearly fee of $25. An admin will upgrade your account as soon as possible. </p>
 
 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
 <input type="hidden" name="cmd" value="_s-xclick">
@@ -34,6 +34,15 @@ link to PayPal and subscribe to a yearly fee of $25. An admin will upgrade your 
 <input type="image" src="https://www.paypalobjects.com/en_AU/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal — The safer, easier way to pay online.">
 <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
 </form>
+
+<p>We also welcome donations of any size</p>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="HBGY945FW8D9Q">
+<input type="image" src="https://www.paypalobjects.com/en_US/NO/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
 
 <div id="leftform">
 <form id="register" name="register" method="post" action="signupprocess.php">
@@ -92,10 +101,6 @@ elseif($_GET['signup']=='success') {
     <label class="label" for="password">Password <span class="req">*</span></label>
     <input type="password" name="password" id="password" pattern=".{6,}" required title="Please make sure your password has more than 6 characters">
     </p>
-    <p>
-    <label class="label" for="repassword">Retype password</label>
-    <input type="password" name="repassword" id="repassword" >
-    </p>    
     <p>
     <input type="submit" name="submit" id="submit" value="Become a member">
     </p>
