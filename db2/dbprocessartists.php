@@ -173,7 +173,7 @@ else if ($_REQUEST['submit'] == "Delete My Artist")
 	if ($dbh->exec($sql))
 		header("Location: myprofile.php?artist=deleted");
 	else
-		header("Location: addartist.php?artist=notdeleted");
+		header("Location: myprofile.php?artist=notdeleted");
 }
 else if ($_REQUEST['submit'] == "Update My Artist")
 {
@@ -184,7 +184,7 @@ else if ($_REQUEST['submit'] == "Update My Artist")
 	if ($dbh->exec($sql))
 		header("Location: myprofile.php?artist=updated");
 	else
-		header("Location: addartist.php?artist=notupdated");
+		header("Location: myprofile.php?artist=notupdated");
 }
 else {
 	echo "This page did not come from a valid form submission.<br />\n";

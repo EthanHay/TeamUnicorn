@@ -35,8 +35,48 @@ if ($_SESSION['status'] == 'free')
 	paid, please <a href='contact.php'>contact</a> TCMC";
 
 else {
-?>
 
+if($_GET['artist']=='inserted'){
+	echo 'The artist was inserted';
+}
+elseif($_GET['artist']=='notinserted'){
+	echo 'The artist was not inserted';
+}
+elseif($_GET['artist']=='deleted'){
+	echo 'The artist was deleted';
+}
+elseif($_GET['artist']=='notdeleted'){
+	echo 'The artist was not deleted';
+}
+elseif($_GET['artist']=='notupdated') {
+	echo 'The artist was not updated';
+}
+elseif($_GET['artist']=='updated') {
+	echo 'The artist was updated';
+}
+elseif($_GET['featart']=='updated') {
+	echo 'Featured artist was updated';
+}
+elseif($_GET['cat']=='notadded') {
+	echo 'The category was not added';
+}
+elseif($_GET['cat']=='added') {
+	echo 'The category was added';
+}
+elseif($_GET['cat']=='updated') {
+	echo 'The category was updated';
+}
+elseif($_GET['cat']=='notupdated') {
+	echo 'The category was not updated';
+}
+elseif($_GET['artcat']=='updated') {
+	echo 'The artist category was updated';
+}
+elseif($_GET['artcat']=='notupdated') {
+	echo 'The artist category was not updated';
+}
+
+?>
 
 <form id="insert" name="insert" method="post" action="dbprocessartists.php" enctype="multipart/form-data">
 <fieldset class="subtleSet">
@@ -213,6 +253,8 @@ echo "</fieldset>
 // close the database connection
 }
 $dbh = null;
+include("footer.html");
 ?>
+
 </body>
 </html>

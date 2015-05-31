@@ -39,6 +39,18 @@ elseif($_GET['status']=='notupdated'){
 elseif($_GET['signup']=='success') {
 	echo 'you were successfully signed up';
 }
+elseif($_GET['artist']=='updated'){
+	echo 'your artist was updated';
+}
+elseif($_GET['artist']=='notupdated'){
+	echo 'your artist was not updated';
+}
+elseif($_GET['notice']=='updated'){
+	echo 'your information was updated';
+}
+elseif($_GET['notice']=='notupdated'){
+	echo 'your information was not updated';
+}
 
 $sql = "SELECT * FROM members WHERE id = '$_SESSION[id]' LIMIT 1";
 foreach ($dbh->query($sql) as $det) {

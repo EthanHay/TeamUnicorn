@@ -73,7 +73,7 @@ if ((($_FILES["imagefile"]["type"] == "image/gif")
                 $image = WideImage::load($newFullName);
                 // resize maintains aspect ratio, so the new image will fit within the rectangle defined by the parameters
                 // you might like to use a constant for this size
-                $thumbnailImage = $image->resize(150, 150);
+                $thumbnailImage = $image->resize(220, 220);
                 $thumbFullName = "images/artists/thumb/thumb{$newName}";
                 $thumbnailImage->saveToFile($thumbFullName);
                 echo "Stored thumnail as: $thumbFullName<br />\n";
